@@ -38,8 +38,7 @@ license.text
 /wp-includes/
 wp-comments-post.php
 wp-config-sample.php
-# license.text
-# index.php
+index.php
 
 #Composer
 composer.lock
