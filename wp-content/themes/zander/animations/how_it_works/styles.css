@@ -1,0 +1,23 @@
+background: #eeeeee;
+display: flex;
+align-items: center;
+justify-content: center;
+
+@font-face {
+      font-family: "Benton Sans";
+      src: url("https://assets.codepen.io/435216/benton-sans-medium.woff2")
+                  format("woff2"),
+            url("https://assets.codepen.io/435216/benton-sans-medium.woff")
+                  format("woff");
+}
+
+svg {
+  padding: 20px;
+  width: 100%;
+  overflow: visible;
+}
+
+text {
+  font-family: 'BentonSans';
+  font-weight: 500;
+}

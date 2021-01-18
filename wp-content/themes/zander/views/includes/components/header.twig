@@ -1,0 +1,18 @@
+<header class="px-4 pt-4 fixed top-0 w-full z-10">
+    <div class="grid grid-cols-2 gap-6">
+        <a href="{{ site.link }}" class="logo h-7 text-{{ header_color|default('parsley') }}">
+            {% include 'img/za-logo.twig' %}
+        </a>
+        {% if page_title|default %}
+            <div class="">
+                <p class="text-30">{{ page_title }}</p>
+            </div>
+        {% endif %}
+    </div>
+    {% include 'includes/menu.twig' %}
+    <div class="menu-trigger-wrapper">
+        <div class="flex items-center justify-center h-full">
+            <div class="menu-indicator bg-{{ header_color|default('parsley') }}"></div>
+        </div>
+    </div>
+</header>

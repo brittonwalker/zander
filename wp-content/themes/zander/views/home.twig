@@ -1,0 +1,51 @@
+{% extends "index.twig" %}
+
+{% block content %}
+    <main data-barba="container" data-barba-namespace="home">
+        <div class="home-wrapper">
+            <div class="container">
+                <div class="grid grid-cols-12">
+                    <div class="col-span-5">
+                        <div class="justify-end flex">
+                            <div class="relative">
+                                <img src="{{ theme.link }}/img/portrait.jpg" alt="">
+                                <div class="w-12 portrait-stamp">
+                                    {% include 'img/za-seal.svg' %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-start-7 col-span-6">
+                        <div class="passport-information mb-4">
+                            <table class="table-auto">
+                                <tr>
+                                    <td class="text-flamingo pr-6">Name</td>
+                                    <td class="passport-detail pl-4">Zander Abranowicz</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-flamingo pr-6">Age</td>
+                                    <td class="passport-detail pl-4">28</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-flamingo pr-6">Occupation</td>
+                                    <td class="passport-detail pl-4">Writer and Strategist</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-flamingo pr-6">Birthplace</td>
+                                    <td class="passport-detail pl-4">New York, New York</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-flamingo pr-6">Residence</td>
+                                    <td class="passport-detail pl-4">Richmond, Virginia</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="biography">
+                            <p>Since graduating from Cornell University in 2014, Zander has published essays in Travel + Leisure, Elle Decor, Kennedy, Kathimerini, Elite Traveler, and Upstate Diary, illustrations in Esquire, and two acclaimed books with photographer William Abranowicz: This Far and No Further (University of Texas Press) and American Originals (Vendome). Serving as Senior Strategist at Athletics, the Brooklyn-based creative studio, he has defined strategic platforms, creative concepts, and verbal identities for IBM, Samsung, Square, Major League Soccer, Elysium, and others. Zander is also Editorial Director at Abbr. Projects, a creative partnership with multi-hyphenate creative Simon Abranowicz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

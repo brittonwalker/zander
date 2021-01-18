@@ -1,0 +1,48 @@
+<section class="conclusion">
+    <div class="container" id="{{ media_item.navigation_title|lower|replace({' ': ''}) }}">
+        <div class="story-section pt-12 lg:pt-20">
+            <div class="grid grid-cols-12">
+                <div class="col-span-12 lg:col-span-8">
+                    <h2 class="font-amplify-light text-orange text-18 lg:text-30 mb-4">{{ media_item.eyebrow }}</h2>
+                    <p class="text-36 lg:text-100 font-benton-comp mb-10">{{ media_item.title }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="relative lg:pt-16">
+        <div class="conclusion-image-container lg:absolute w-full left-0">
+            <div class="pt-9/16 relative overflow-hidden">
+                <img src="{{ TimberImage(media_item.background_image).src }}" alt="" class="lazy-load lazy-load absolute top-0 left-0 w-full h-full loaded">
+            </div>
+        </div>
+        <div class="container relative conclusion-items z-10 pb-4 lg:pb-0">
+            <div class="grid grid-cols-12 gap-0">
+                <div class="col-span-12 lg:col-span-7 lg:col-start-6">
+                    <div class="rounded-lg shadow px-3 pt-4 pb-1 lg:py-8 lg:pr-12 lg:pl-8 bg-white right-0 mx-auto">
+                        <ol class="conclusion-list text-22 lg:text-36">
+                            {% for item in media_item.list %}
+                                <li class="mb-4 lg:mb-8 font-benton-comp flex">
+                                    <span class="text-orange font-amplify-light mr-3 list-marker">{{ loop.index }}.</span> <span class="pl-3">{{ item.item }}</span>
+                                </li>
+                            {% endfor %}
+                        </ol>
+                        <div class="hidden lg:flex items-center ml-auto">
+                            {% set current_program = 0 %}
+                            {% if menu.primary.slug == 'primary-navigation' %}
+                                {% for item in menu.primary.get_items %}
+                                    {% if item.current %}
+                                        {% set current_program = loop.index0 %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                            <button class="open-drawer rep-view bg-orange shadow text-black py-2 px-4 rounded-full mr-2" data-drawer-state="rep-active">Talk to a rep</button>
+                            <button class="open-drawer sample-view bg-orange shadow text-black py-2 px-4 rounded-full mr-2" data-drawer-state="sample-materials-active" data-current-program="{{ current_program }}">Sample materials</button>
+                            {# <button class="open-drawer bg-orange shadow text-black py-2 px-4 rounded-full mr-2" data-drawer-state="sample-materials-active">Review materials</button>
+                            <button class="open-drawer bg-orange shadow text-black py-2 px-4 rounded-full mr-2" data-drawer-state="rep-active">Talk to a Rep</button> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

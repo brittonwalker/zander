@@ -1,0 +1,64 @@
+{
+    "key": "group_5ffb532c9bd3c",
+    "title": "Footer Facts",
+    "fields": [
+        {
+            "key": "field_5ffb5337d6132",
+            "label": "Facts",
+            "name": "footer_facts",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5ffb5350d6133",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Fact",
+            "sub_fields": [
+                {
+                    "key": "field_5ffb5350d6133",
+                    "label": "Fact",
+                    "name": "fact",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-facts"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1610306411
+}

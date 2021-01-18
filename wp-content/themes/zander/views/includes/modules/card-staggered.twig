@@ -1,0 +1,45 @@
+<div class="staggered-cards {{ media_item.bg_color }} relative">
+    <div class="container">
+        <div class="md:hidden relative pb-4" style="top: -80px;">
+            <div>
+                <div class="card-carousel relative">
+                    {% for card in item.cards %}
+                        <div class="flex slide mr-4">
+                            {% include 'includes/components/image-card.twig' %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% include 'includes/components/carousel-navigation.twig' with { 'cards' : item.cards } %}
+        </div>
+
+        <div class="relative hidden md:block staggered-cards-container" style="top: -170px;">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="col-span-2 md:col-span-1">
+                    {% for card in item.cards|slice(0,2) %}
+                        <div class="{{ loop.index != loop.last ? 'mb-6' }}">
+                            <div class="card">
+                                {% include 'includes/components/image-card.twig' %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% set card = item.cards|slice(2,1) %}
+                <div class="col-span-2 md:col-span-1 flex items-center">
+                    <div class="card">
+                        {% include 'includes/components/image-card.twig' with { 'card': card[0] } %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if item.overlay_bottom_image|default %}
+            <div class="container relative">
+                <div class="staggered-bottom-overlay relative">
+                    <div class="image-569">
+                        <img src="{{ TimberImage(item.overlay_bottom_image).src }}" alt="{{ TimberImage(item.overlay_bottom_image).alt }}">
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+</div>

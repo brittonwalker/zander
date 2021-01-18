@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper pt-40">
+        <div class="grid grid-cols-12">
+            <div class="col-span-5">
+            </div>
+            <div class="col-start-7 col-span-6">
+                {% for book in books %}
+                    <div class="grid grid-cols-12 gap-4">
+                        {% for info in book.title_text %}
+                            <div class="col-span-2 text-flamingo">{{ info.title }}</div>
+                            <div class="col-span-10">{{ info.text }}</div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>	
+	</div><!-- /content-wrapper -->
+{% endblock %}

@@ -1,0 +1,11 @@
+ {% if card.asset_type == 'code' %}
+  <code class="css hidden">
+    {{ card.code_css }}
+  </code>
+  <code class="js hidden">
+    {{ card.code_js }}
+  </code>
+  <code class="html hidden">
+    {{ card.code_html|e('html')|raw }}
+  </code>
+{% endif %}

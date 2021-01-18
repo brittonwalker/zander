@@ -1,0 +1,42 @@
+{% extends "index.twig" %}
+
+{% block header %}
+    {% include 'includes/components/header.twig' with { page_title: 'Essays' } %}
+{% endblock %}
+
+{% block content %}
+
+	<div class="content-wrapper">
+        <div class="grid grid-cols-2 gap-6 mt-28">
+            <div class="col-span">
+                <div class="grid grid-cols-6">
+                    <div class="col-span-4 col-start-2">
+                        <div class="image-container ml-auto"><img src="" alt="" class="ml-auto"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span">
+                <h1 class="text-parsely text-30 hidden">Essays</h1>
+                {% for item in posts %}
+                    <a href="{{ item.link }}" class="hover:text-flamingo" data-featured-image="{{ item.thumbnail.src }}">
+                        <table class="table-auto mb-6">
+                            <tr>
+                                <td class="text-flamingo pr-6">Title</td>
+                                <td>{{ item.title }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-flamingo pr-6">Publication</td>
+                                <td>{{ item.terms( 'publication' )|join(', ') }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-flamingo pr-6">Year</td>
+                                <td>{{ item.terms( 'year' )|join(', ') }}</td>
+                            </tr>
+                        </table>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+	</div><!-- /content-wrapper -->
+  
+{% endblock %}

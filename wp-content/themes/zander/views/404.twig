@@ -1,0 +1,29 @@
+{% extends "base.twig" %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+    <main data-barba="container" data-barba-namespace="404">
+        <div class="content-wrapper pt-25 lg:pt-40">
+            <div class="story-section pb-20 lg:pb-34">
+				<div class="relative">
+					<div class="image-404 absolute right-0">
+						<img class="h-full w-auto"src="{{ theme.link }}/img/404.png" alt="">
+					</div>
+					<div class="container relative">
+						<div class="grid grid-cols-12">
+							<div class="col-span-12 md:col-span-10 lg:col-span-11">
+								<div class="program-logo mb-5">
+									<img src="{{ TimberImage(post.logo).src }}" alt="">
+								</div>
+								<p class="text-36 md:text-60 lg:text-80 xl:text-100 font-benton-comp mb-10 lg:mb-15">Sorry, we couldn't find the page you were looking for.</p>
+								<a href="{{ site.link }}" class="text-18 bg-orange shadow text-black inline-block py-2 px-8 rounded-full mr-2">Go Home</a>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

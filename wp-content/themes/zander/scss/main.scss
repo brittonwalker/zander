@@ -1,0 +1,129 @@
+//
+// Components
+// --------------------------------------------------
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import 'app/components/fonts';
+
+@import 'vendor/locomotive';
+
+body {
+    @apply text-parsley;
+    font-family: 'Lector';
+    font-variant: lining-nums;
+}
+
+.menu-indicator {
+    @apply w-2;
+    @apply h-2;
+    @apply rounded-full;
+    transition: all .3s ease;
+}
+
+.menu-trigger-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 1000;
+
+    &:hover {
+        .menu-indicator {
+            transform: scale(2);
+        }
+        cursor: pointer;
+    }
+}
+
+.site-menu {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+}
+
+.menu-active {
+    .menu-trigger-wrapper {
+        .menu-indicator {
+            @apply bg-almond;
+            transform: scale(2);
+        }
+    }
+    .site-menu {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+.admin-bar {
+    .menu-trigger-wrapper {
+        top: 32px;
+    }
+}
+
+.portrait-stamp {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+.home-wrapper {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.passport {
+    &-heading {
+        max-width: 75px;
+        width: 100%;
+    }
+    &-detail {
+
+    }
+}
+
+.essay-content {
+    p {
+        margin-bottom: 26px;
+    }
+}
+
+p {
+    font-size: 16px;
+    line-height: 26px;;
+}
+
+.essay-content {
+    max-width: 60%;
+}
+
+.single-essays {
+    @apply bg-parsley;
+    @apply text-almond;
+
+    .site-footer {
+        background-color: inherit;
+        color: inherit;
+    }
+}
+
+.image-container {
+    img {
+        pointer-events: none;
+        opacity: 0;
+        transform: translate3d(0,15px,0);
+        transition: all 0.4s;
+
+        &.active-img {
+            opacity: 1;
+            transform: translate3d(0,0,0);
+        }
+    }
+}

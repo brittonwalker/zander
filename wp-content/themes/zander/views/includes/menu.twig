@@ -1,0 +1,21 @@
+<div class="site-menu bg-black w-screen h-screen fixed z-30 left-0 top-0 p-4">
+    <div class="relative h-full">
+        <div class="w-screen h-screen flex justify-center items-center">
+            <ul class="menu-items text-almond text-center text-40">
+                <li class="mb-4"><a href="{{ site.link }}">Home</a></li>
+                {% for item in menu.primary.items %}
+                    <li class="mb-4"><a href="{{ item.url }}">{{ item.title }}</a></li>
+                {% endfor %}
+                {# <li class="mb-4"><a href="">Shop</a></li>
+                <li class="mb-4"><a href="">Cart</a></li> #}
+            </ul>
+        </div>
+        <div class="menu-social left-0 bottom-0 absolute">
+            <ul class="text-flamingo text-12">
+                {% for item in menu.social.items %}
+                    <li><a href="{{ item.url }}" target="_blank">{{ item.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

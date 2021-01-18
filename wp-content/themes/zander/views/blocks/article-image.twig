@@ -1,0 +1,8 @@
+{% if is_preview or not is_preview %}
+    {% set image = TimberImage(fields.image)%}
+    <div data-trigger-image="{{ image.src }}" data-scroll data-scroll-repeat="true" data-scroll-call="popImg"></div>
+{% endif %}
+
+{% if is_preview %}
+    
+{% endif %}
