@@ -18,6 +18,7 @@ import './app/Marquee';
 new Controller();
 
 
+
 // barba.hooks.before(() => {
 //     barba.wrapper.classList.add('is-animating');
 // });
