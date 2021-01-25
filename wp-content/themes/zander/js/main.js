@@ -17,6 +17,7 @@ import './app/Marquee';
 
 new Controller();
 
+
 // console.info('🚀App:init');
 
 // barba.hooks.before(() => {
