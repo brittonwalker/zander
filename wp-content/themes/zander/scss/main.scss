@@ -101,7 +101,9 @@ p {
 }
 
 .essay-content {
-    max-width: 60%;
+    width: 600px;
+    max-width: 100%;
+    margin-right: 60px;
 }
 
 .single-essays {
@@ -115,15 +117,42 @@ p {
 }
 
 .image-container {
+    position: relative;
     img {
         pointer-events: none;
         opacity: 0;
-        transform: translate3d(0,15px,0);
-        transition: all 0.4s;
+        // transform: translate3d(0,15px,0);
+        transition: all 0.6s;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
 
         &.active-img {
             opacity: 1;
-            transform: translate3d(0,0,0);
+            // transform: translate3d(0,0,0);
         }
     }
+}
+
+.admin-bar {
+    .site-header {
+        top: 32px !important;
+    }
+}
+
+.essay-left-rail {
+    top: 160px;
+}
+
+.facts-container {
+    overflow: hidden;
+}
+
+.facts-inner {
+    left: 100%;
+}
+
+.essay-content-inner {
+    margin-bottom: 30vh;
 }

@@ -4,29 +4,25 @@
 
 import $ from 'jquery';
 
-class HoverImage {
+export default class HoverImage {
 
     constructor() {
 
-        console.log($('[data-featured-image'));
-
-        $('[data-featured-image').on('mouseenter', this.activateImage);
-        $('[data-featured-image').on('mouseleave', this.deactivateImage);
+        $('[data-featured-index').on('mouseenter', this.activateImage);
+        $('[data-featured-index').on('mouseleave', this.deactivateImage);
 
     }
 
     activateImage() {
 
-        $('.image-container img').attr('src', this.dataset.featuredImage).addClass('active-img');
+        $(`[data-featured-image="${this.dataset.featuredIndex}"]`).addClass('active-img');
 
     }
 
     deactivateImage() {
 
-        // $('.image-container img').attr('src', this.dataset.featuredImage);
-        $('.image-container img').removeClass('active-img')
+        $(`[data-featured-image="${this.dataset.featuredIndex}"]`).removeClass('active-img');
 
     }
 
 }
-new HoverImage();

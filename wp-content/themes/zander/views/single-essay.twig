@@ -1,66 +1,60 @@
 {% extends "index.twig" %}
 
-{% block header %}
-    {% include 'includes/components/header.twig' with { page_title: 'Essay', header_color: 'almond' } %}
-{% endblock %}
-
 {% block content %}
-	<div class="content-wrapper" data-scroll-container>
-        <div class="grid grid-cols-2 gap-6">
-            <div class="col-span">
-                <div class="grid grid-cols-6 h-full">
-                    <div class="col-span-4 col-start-2 flex items-end">
-                        <table class="table-auto mb-12 mt-auto">
-                            <tr>
-                                <td class="text-flamingo pr-6">Publication</td>
-                                <td>{{ post.terms( 'publication' )|join(', ') }}</td>
-                            </tr>
-                            <tr>
-                                <td class="text-flamingo pr-6">Year</td>
-                                <td>{{ post.terms( 'year' )|join(', ') }}</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-span">
-                <div data-scroll-section data-scroll-offset data-scroll-class data-scroll-offset="100%, 100%">
-                    <h1 class="text-30 mt-12 mb-12">{{ post.title }}</h1>
-                    <table class="table-auto mb-12" data-essay-meta>
-                        <tr>
-                            <td class="text-flamingo pr-6">Publication</td>
-                            <td>{{ post.terms( 'publication' )|join(', ') }}</td>
-                        </tr>
-                        <tr>
-                            <td class="text-flamingo pr-6">Year</td>
-                            <td>{{ post.terms( 'year' )|join(', ') }}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            {# <div class="col-span flex justify-center">
-                <div class="relative">
-                <div class="floating-img sticky top-0">
-                    <img src="{{ theme.link }}/img/portrait.jpg" alt="" class="w-auto">
-                </div>
-                </div>
-            </div> #}
-            <div class="col-span">
-                <div class="grid grid-cols-6">
-                    <div class="col-span-4 col-start-2">
-                        <div class="image-container ml-auto"><img src="{{ theme.link }}/img/portrait.jpg" alt="" class=""></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-span">
-                <div class="essay-content">
-                    <div data-scroll-section>
-                        <div class="pb-20">
-                            {{ post.content }}
+    <main data-barba="container" barba-namespace="single-essay" class="{{ body_class }}">
+
+        {% block header %}
+            {% include 'includes/components/header.twig' with { page_title: 'Essay', header_color: 'almond', text_color: 'flamingo' } %}
+        {% endblock %}
+
+        <div class="content-wrapper" data-scroll-container>
+            <div class="grid grid-cols-2 gap-6">
+                <div class="col-span">
+                    <div class="grid grid-cols-6 h-full">
+                        <div class="col-span-4 col-start-2 pt-20 relative">
+                            <div class="sticky essay-left-rail">
+                                <table data-publication-table-target class="table-auto mb-12 mt-auto opacity-0">
+                                    <tr>
+                                        <td class="text-flamingo pr-6">Publication</td>
+                                        <td>{{ post.terms( 'publication' )|join(', ') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-flamingo pr-6">Year</td>
+                                        <td>{{ post.terms( 'year' )|join(', ') }}</td>
+                                    </tr>
+                                </table>
+                                <div class="image-container ml-auto"></div>
+                            </div>
                         </div>
-                    </div>    
+                    </div>
+                </div>
+                <div class="col-span">
+                    <div class="pt-10">
+                        <div data-essay-header>
+                            <h1  data-scroll data-scroll-repeat="true" data-scroll-call="titleView" class="text-30 mt-12 mb-12">{{ post.title }}</h1>
+                            <table class="table-auto mb-12" data-publication-table>
+                                <tr>
+                                    <td class="text-flamingo pr-6">Publication</td>
+                                    <td>{{ post.terms( 'publication' )|join(', ') }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-flamingo pr-6">Year</td>
+                                    <td>{{ post.terms( 'year' )|join(', ') }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="essay-content">
+                        <div data-scroll-section>
+                            <div class="essay-content-inner">
+                                {{ post.content }}
+                            </div>
+                        </div>    
+                    </div>
                 </div>
             </div>
-        </div>
-	</div><!-- /content-wrapper -->
+        </div><!-- /content-wrapper -->
+
+    </main>
+    
 {% endblock %}

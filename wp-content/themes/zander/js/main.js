@@ -6,30 +6,46 @@
 // JS
 import $ from 'jquery';
 import '@babel/polyfill';
-import './app/HoverImage';
-import './app/Menu';
-import PopulateImage from './app/PopulateImage';
+import {
+    gsap,
+    ScrollTrigger,
+    ScrollToPlugin
+} from 'gsap/all';
+import barba from '@barba/core';
+import Controller from './app/Controller';
+import './app/Marquee';
 
-import LocomotiveScroll from 'locomotive-scroll';
+new Controller();
 
-const scroll = new LocomotiveScroll({
-    el: document.querySelector('[data-scroll-container]'),
-    smooth: true
-});
+// console.info('🚀App:init');
 
-scroll.on('popImg', function() {
-    console.log('hello')
-});
+// barba.hooks.before(() => {
+//     barba.wrapper.classList.add('is-animating');
+// });
+// barba.hooks.after(() => {
+//     barba.wrapper.classList.remove('is-animating');
+// });
 
-scroll.on('call', (func, item, thing, stuff) => {
-    // Using modularJS
-    let { el } = thing;
-    console.log(el);
-
-    if ( func === 'popImg' ) {
-        new PopulateImage(el);
-    }
-    // Using jQuery events
-    $(document).trigger(func);
-    // Or do it your own way 😎
-});
+// barba.init({
+//     debug: true,
+//     transitions: [{
+//         name: 'opacity-transition',
+//         leave(data) {
+//             console.log(data.current);
+//             return gsap.to(data.current.container, {
+//                 opacity: 0,
+//                 duration: .5
+//             });
+//         },
+//         enter(data) {
+//             return gsap.from(data.next.container, {
+//                 opacity: 0,
+//                 duration: .5
+//             });
+//         },
+//         afterEnter() {
+//             console.log('after enter');
+//             new Controller();
+//         }
+//     }]
+// });

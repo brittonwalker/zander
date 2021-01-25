@@ -4,7 +4,7 @@
 
 import $ from 'jquery';
 
-class Menu {
+export default class Menu {
 
     constructor() {
 
@@ -19,11 +19,10 @@ class Menu {
     }
 
     closeMenu(e) {
-        let container = $('.menu-social, .menu-items, .menu-trigger-wrapper');
+        let container = $('.menu-social, .menu-trigger-wrapper');
         if (!container.is(e.target) && container.has(e.target).length === 0 && window.innerWidth >= 1024) {
             $('body').removeClass('menu-active')
         }
     }
 
 }
-new Menu();

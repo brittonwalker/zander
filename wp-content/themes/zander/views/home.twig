@@ -1,7 +1,12 @@
 {% extends "index.twig" %}
 
 {% block content %}
-    <main data-barba="container" data-barba-namespace="home">
+    <main data-barba="container" barba-namespace="home" class="{{ body_class }} bg-almond">
+
+        {% block header %}
+            {% include 'includes/components/header.twig' with { item: '' } %}
+        {% endblock %}
+
         <div class="home-wrapper">
             <div class="container">
                 <div class="grid grid-cols-12">
@@ -47,5 +52,6 @@
                 </div>
             </div>
         </div>
+
     </main>
 {% endblock %}

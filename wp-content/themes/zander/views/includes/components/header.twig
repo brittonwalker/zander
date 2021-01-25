@@ -1,11 +1,17 @@
-<header class="px-4 pt-4 fixed top-0 w-full z-10">
+<header class="site-header px-4 pt-4 fixed top-0 w-full z-10">
     <div class="grid grid-cols-2 gap-6">
-        <a href="{{ site.link }}" class="logo h-7 text-{{ header_color|default('parsley') }}">
-            {% include 'img/za-logo.twig' %}
-        </a>
+        <div class="flex items-center">
+            <a href="{{ site.link }}" data-main-logo class="logo h-7 duration-300 transition overflow-hidden text-{{ header_color|default('parsley') }}">
+                {% include 'img/za-logo.twig' %}
+            </a>
+            <a href="{{ site.link }}" data-short-logo class="logo h-7 duration-300 transition opacity-0 mr-8 text-{{ header_color|default('parsley') }}">
+                {% include 'img/za-logo-short.twig' %}
+            </a>
+            <p class="text-30 inline-block text-{{ text_color|default('parsley') }}"><span data-post-type-target class="transition-opacity opacity-0">{{ page_title }}</span> <span data-post-title-target class="transition-opacity opacity-0 text-almond">{{ post.title }}</span></p>
+        </div>
         {% if page_title|default %}
-            <div class="">
-                <p class="text-30">{{ page_title }}</p>
+            <div class="" data-post-type>
+                <p class="text-30 transition-opacity duration-300 text-{{ text_color|default('parsley') }}">{{ page_title }}</p>
             </div>
         {% endif %}
     </div>

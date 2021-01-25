@@ -1,8 +1,14 @@
 <div class="grid grid-cols-2 px-4 gap-6">
     <div class="local-time">
-        <p><span class="text-flamingo">15:45</span>  Time in Richmond, Virginia</p>
+        <p><span class="text-flamingo" id="clock"></span>  Time in Richmond, Virginia</p>
     </div>
-    <div class="cool-facts">
-        <p class="whitespace-nowrap"><span class="text-flamingo">Something you should know</span>  {{ facts|map((item) => "#{item.fact}")|join(' ') }}</p>
+    <div class="cool-facts whitespace-nowrap flex">
+        <span class="text-flamingo mr-3">Something you should know</span>
+        <div class="facts-container relative inline w-full overflow-hidden">
+            <div class="facts-inner inline absolute" id="marquee">
+                {{ facts|map((item) => "<span class='mr-10'>#{item.fact}</span>")|join(' ') }}
+                {{ facts|map((item) => "<span class='mr-10'>#{item.fact}</span>")|join(' ') }}
+            </div>
+        </div>
     </div>
 </div>

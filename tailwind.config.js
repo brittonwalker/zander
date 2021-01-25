@@ -41,8 +41,13 @@ var spacing = {
   ...aspectRatios
 }
 
+const themePath = './wp-content/themes/zander';
+
 module.exports = {
-  purge: [],
+  purge: [
+    `${themePath}/views/*.twig'`,
+    `${themePath}/views/**/*.twig'`,
+  ],
   theme: {
     extend: {
       colors: {

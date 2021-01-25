@@ -1,52 +1,60 @@
 {% extends "index.twig" %}
 
-{% block header %}
-    {% include 'includes/components/header.twig' with { page_title: 'Strategy' } %}
-{% endblock %}
-
 {% block content %}
 
-	<div class="content-wrapper">
-        <div class="grid grid-cols-2 gap-6 mt-28">
-            <div class="col-span">
-                <div class="grid grid-cols-6">
-                    <div class="col-span-4 col-start-2">
-                        <div class="image-container ml-auto"><img src="" alt="" class="ml-auto"></div>
+    <main data-barba="container" barba-namespace="strategy" class="{{ body_class }} bg-almond">
+
+        {% block header %}
+            {% include 'includes/components/header.twig' with { page_title: 'Strategy' } %}
+        {% endblock %}
+
+        <div class="content-wrapper">
+            <div class="grid grid-cols-2 gap-6 mt-28 mb-28">
+                <div class="col-span">
+                    <div class="grid grid-cols-6">
+                        <div class="col-span-4 col-start-2">
+                            <div class="image-container ml-auto">
+                                {% for item in posts %}
+                                    <img src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.src }}" data-featured-image="{{ loop.index }}" class="ml-auto">
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="col-span">
+                    <h1 class="text-parsely text-30 hidden">Strategy</h1>
+                    {% for item in posts %}
+                        <table class="table-auto mb-6" data-featured-index="{{ loop.index }}">
+                            <tr>
+                                <td class="text-flamingo pr-6">Client</td>
+                                <td>{{ item.client }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-flamingo pr-6">Field</td>
+                                <td>{{ item.terms( 'field' )|join(', ') }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-flamingo pr-6">Challenge</td>
+                                <td>{{ item.challenge }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-flamingo pr-6">Year</td>
+                                <td>{{ item.year }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-flamingo pr-6">Affliation</td>
+                                {% if item.affiliation.url %}
+                                    <td><a href="{{ item.affiliation.url }}" target="_blank">{{ item.affiliation.title }}</a></td>
+                                {% else %}
+                                    <td>{{ item.affiliation.title }}</td>
+                                {% endif %}
+                            </tr>
+                        </table>
+                    {% endfor %}
+                </div>
             </div>
-            <div class="col-span">
-                <h1 class="text-parsely text-30 hidden">Strategy</h1>
-                {% for item in posts %}
-                    <table class="table-auto mb-6" data-featured-image="{{ item.thumbnail.src }}">
-                        <tr>
-                            <td class="text-flamingo pr-6">Client</td>
-                            <td>{{ item.client }}</td>
-                        </tr>
-                        <tr>
-                            <td class="text-flamingo pr-6">Field</td>
-                            <td>{{ item.terms( 'field' )|join(', ') }}</td>
-                        </tr>
-                        <tr>
-                            <td class="text-flamingo pr-6">Challenge</td>
-                            <td>{{ item.challenge }}</td>
-                        </tr>
-                        <tr>
-                            <td class="text-flamingo pr-6">Year</td>
-                            <td>{{ item.year }}</td>
-                        </tr>
-                        <tr>
-                            <td class="text-flamingo pr-6">Affliation</td>
-                            {% if item.affiliation.url %}
-                                <td><a href="{{ item.affiliation.url }}" target="_blank">{{ item.affiliation.title }}</a></td>
-                            {% else %}
-                                <td>{{ item.affiliation.title }}</td>
-                            {% endif %}
-                        </tr>
-                    </table>
-                {% endfor %}
-            </div>
-        </div>
-	</div><!-- /content-wrapper -->
+        </div><!-- /content-wrapper -->
+
+    </main>
   
 {% endblock %}
