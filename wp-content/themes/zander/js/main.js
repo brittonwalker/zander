@@ -18,8 +18,6 @@ import './app/Marquee';
 new Controller();
 
 
-// console.info('🚀App:init');
-
 // barba.hooks.before(() => {
 //     barba.wrapper.classList.add('is-animating');
 // });
