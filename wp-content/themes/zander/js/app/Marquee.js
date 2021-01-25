@@ -14,6 +14,7 @@ class Marquee {
         }
 
         window.setInterval(() => this.animationLoop(), 20);
+        
 
     }
 
