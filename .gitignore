@@ -21,6 +21,7 @@ wp-content/cache/*
 wp-content/cache/supercache/*
 wp-content/themes/nyrb_2020/assets/css
 wp-content/themes/nyrb_2020/assets/js
+wp-content/index.php
 wp-activate.php
 wp-blog-header.php
 wp-comments.php
