@@ -37,6 +37,8 @@ license.text
 wp-comments-post.php
 wp-config-sample.php
 index.php
+readme.html
+license.txt
 
 #Composer
 composer.lock
