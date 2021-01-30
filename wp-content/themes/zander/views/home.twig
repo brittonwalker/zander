@@ -13,7 +13,7 @@
                     <div class="col-span-5">
                         <div class="justify-end flex">
                             <div class="relative">
-                                <img src="{{ theme.link }}/img/portrait.jpg" alt="">
+                                <img src="{{ TimberImage(post.photo).src }}" alt="{{ TimberImage(post.photo).alt }}">
                                 <div class="w-12 portrait-stamp">
                                     {% include 'img/za-seal.svg' %}
                                 </div>
@@ -25,28 +25,28 @@
                             <table class="table-auto">
                                 <tr>
                                     <td class="text-flamingo pr-6">Name</td>
-                                    <td class="passport-detail pl-4">Zander Abranowicz</td>
+                                    <td class="passport-detail pl-4">{{ post.name }}</td>
                                 </tr>
                                 <tr>
                                     <td class="text-flamingo pr-6">Age</td>
-                                    <td class="passport-detail pl-4">28</td>
+                                    <td class="passport-detail pl-4">{{ post.age }}</td>
                                 </tr>
                                 <tr>
                                     <td class="text-flamingo pr-6">Occupation</td>
-                                    <td class="passport-detail pl-4">Writer and Strategist</td>
+                                    <td class="passport-detail pl-4">{{ post.occupation }}</td>
                                 </tr>
                                 <tr>
                                     <td class="text-flamingo pr-6">Birthplace</td>
-                                    <td class="passport-detail pl-4">New York, New York</td>
+                                    <td class="passport-detail pl-4">{{ post.birthplace }}</td>
                                 </tr>
                                 <tr>
                                     <td class="text-flamingo pr-6">Residence</td>
-                                    <td class="passport-detail pl-4">Richmond, Virginia</td>
+                                    <td class="passport-detail pl-4">{{ post.residence }}</td>
                                 </tr>
                             </table>
                         </div>
                         <div class="biography">
-                            <p>Since graduating from Cornell University in 2014, Zander has published essays in Travel + Leisure, Elle Decor, Kennedy, Kathimerini, Elite Traveler, and Upstate Diary, illustrations in Esquire, and two acclaimed books with photographer William Abranowicz: This Far and No Further (University of Texas Press) and American Originals (Vendome). Serving as Senior Strategist at Athletics, the Brooklyn-based creative studio, he has defined strategic platforms, creative concepts, and verbal identities for IBM, Samsung, Square, Major League Soccer, Elysium, and others. Zander is also Editorial Director at Abbr. Projects, a creative partnership with multi-hyphenate creative Simon Abranowicz.</p>
+                            {{ post.bio }}
                         </div>
                     </div>
                 </div>
