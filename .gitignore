@@ -44,8 +44,8 @@ license.txt
 composer.lock
 /vendor/
 
-#Grunt
-/node_modules/
+#Build
+wp-content/themes/zander/node_modules/
 
 # wpengine specific
 .smushit-status
