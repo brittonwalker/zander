@@ -9,11 +9,11 @@ module.exports = merge(common, {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '../css/[name]-[hash].css',
+      filename: '../css/[name].min.css',
     }),
   ],
   output: {
-    filename: '[name]-[hash].js',
+    filename: '[name].min.js',
     path: path.resolve(__dirname, `${themePath}/assets/js/`),
   },
 });

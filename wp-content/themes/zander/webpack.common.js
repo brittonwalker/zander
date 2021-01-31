@@ -1,5 +1,5 @@
 const path = require('path');
-const themePath = './wp-content/themes/zander';
+const themePath = '.';
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const globImporter = require('node-sass-glob-importer');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
