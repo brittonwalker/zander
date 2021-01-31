@@ -44,10 +44,17 @@ var spacing = {
 const themePath = '.';
 
 module.exports = {
-  purge: [
-    './views/*.twig',
-    './views/**/*.twig',
-  ],
+  purge: {
+    content: [
+      './views/*.twig',
+      './views/**/*.twig',
+      './svg/**/*.twig',
+    ],
+    options: {
+      safelist: ['bg-parsley'],
+      blocklist: [/^debug-/],
+    },
+  },
   theme: {
     extend: {
       colors: {
