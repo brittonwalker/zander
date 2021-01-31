@@ -14,14 +14,15 @@
                         <div class="justify-end flex">
                             <div class="relative">
                                 <img src="{{ TimberImage(post.photo).src }}" alt="{{ TimberImage(post.photo).alt }}">
-                                <div class="w-12 portrait-stamp">
+                                <div class="image-overlay w-full h-full absolute top-0 left-0 bg-almond"></div>
+                                <div class="w-12 portrait-stamp opacity-0">
                                     {% include 'img/za-seal.svg' %}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-start-7 col-span-6">
-                        <div class="passport-information mb-4">
+                        <div class="passport-information opacity-0 mb-4">
                             <table class="table-auto">
                                 <tr>
                                     <td class="text-flamingo pr-6">Name</td>
@@ -45,8 +46,8 @@
                                 </tr>
                             </table>
                         </div>
-                        <div class="biography">
-                            {{ post.bio }}
+                        <div class="biography opacity-0">
+                            {{ post.get_field('bio') }}
                         </div>
                     </div>
                 </div>
