@@ -41,14 +41,16 @@
                                 <td class="text-flamingo pr-6">Year</td>
                                 <td>{{ item.year }}</td>
                             </tr>
-                            <tr>
-                                <td class="text-flamingo pr-6">Affliation</td>
-                                {% if item.affiliation.url %}
-                                    <td><a href="{{ item.affiliation.url }}" class="hover:text-flamingo" target="_blank">{{ item.affiliation.title }} ↗</a></td>
-                                {% else %}
-                                    <td>{{ item.affiliation.title }}</td>
-                                {% endif %}
-                            </tr>
+                            {% if item.affiliation.title %}
+                                <tr>
+                                    <td class="text-flamingo pr-6">Affliation</td>
+                                    {% if item.affiliation.url %}
+                                        <td><a href="{{ item.affiliation.url }}" class="hover:text-flamingo" target="_blank">{{ item.affiliation.title }} ↗</a></td>
+                                    {% else %}
+                                        <td>{{ item.affiliation.title }}</td>
+                                    {% endif %}
+                                </tr>
+                            {% endif %}
                         </table>
                     {% endfor %}
                 </div>
