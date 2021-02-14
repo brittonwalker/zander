@@ -142,7 +142,7 @@ p {
 }
 
 .essay-left-rail {
-    top: 160px;
+    top: 120px;
 }
 
 .facts-container {
@@ -171,11 +171,46 @@ p {
 }
 
 .m-top-grid {
-    margin-top: 30vh;
+    padding-top: 30vh;
 }
 
 .image-container {
     img {
         max-height: 50vh;
+    }
+}
+
+.nav-logo {
+    &.logo-shorty {
+        .logo-long {
+            opacity: 0;
+        }
+        .logo-short {
+            transition-delay: 300ms;
+            opacity: 1;
+        }
+    }
+    .logo-long {
+        opacity: 1;
+        transition-delay: 300ms;
+    }
+    .logo-short {
+        opacity: 0;
+    }
+    .logo-long,
+    .logo-short {
+        transition: opacity .3s ease;
+    }
+}
+
+.essay-images {
+    img {
+        transition: opacity .3s ease;
+        max-height: 50vh;
+        max-width: 100%;
+
+        &.active-img {
+            opacity: 1;
+        }
     }
 }

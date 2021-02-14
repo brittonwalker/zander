@@ -10,8 +10,9 @@
         <div class="content-wrapper" data-scroll-container>
             <div class="grid grid-cols-2 gap-6">
                 <div class="col-span">
+                    <div class="pt-10 pb-12"></div>
                     <div class="grid grid-cols-6 h-full">
-                        <div class="col-span-4 col-start-2 pt-20 relative">
+                        <div class="col-span-4 col-start-2 relative">
                             <div class="sticky essay-left-rail">
                                 <table data-publication-table-target class="table-auto mb-12 mt-auto opacity-0">
                                     <tr>
@@ -23,27 +24,30 @@
                                         <td>{{ post.terms( 'year' )|join(', ') }}</td>
                                     </tr>
                                 </table>
-                                <div class="image-container ml-auto"></div>
+                                <div class="essay-images relative ml-auto">
+                                    {% for image in post.essay_images %}
+                                        <img src="{{ TimberImage(image).src }}" class="absolute top-0 left-0 opacity-0 {{ loop.first ? 'active-img' }}" alt="{{ TimberImage(image).alt }}">
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-span">
-                    <div class="pt-10">
-                        <div data-essay-header>
-                            <h1  data-scroll data-scroll-repeat="true" data-scroll-call="titleView" class="text-30 mt-12 mb-12">{{ post.title }}</h1>
-                            <table class="table-auto mb-12" data-publication-table>
-                                <tr>
-                                    <td class="text-flamingo pr-6">Publication</td>
-                                    <td>{{ post.terms( 'publication' )|join(', ') }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-flamingo pr-6">Year</td>
-                                    <td>{{ post.terms( 'year' )|join(', ') }}</td>
-                                </tr>
-                            </table>
-                        </div>
+                <div class="col-span relative">
+                    <div class="pt-10 pb-12"></div>
+                    <div data-title-wrapper class="mb-12 sticky top-4">
+                        <h1 data-title class="text-30 relative">{{ post.title }}</h1>
                     </div>
+                    <table class="table-auto mb-12" data-publication-table>
+                        <tr>
+                            <td class="text-flamingo pr-6">Publication</td>
+                            <td>{{ post.terms( 'publication' )|join(', ') }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-flamingo pr-6">Year</td>
+                            <td>{{ post.terms( 'year' )|join(', ') }}</td>
+                        </tr>
+                    </table>
                     <div class="essay-content">
                         <div data-scroll-section>
                             <div class="essay-content-inner">

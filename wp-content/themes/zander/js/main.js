@@ -15,6 +15,7 @@ import barba from '@barba/core';
 import Controller from './app/Controller';
 import './app/Marquee';
 import './app/HomePage';
+import './app/Essay';
 
 new Controller();
 
