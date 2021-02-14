@@ -6,7 +6,8 @@
         <span class="text-flamingo mr-3">Something you should know</span>
         <div class="facts-container relative inline w-full overflow-hidden">
             <div class="facts-inner inline absolute" id="marquee">
-                {{ facts|map((item) => "<span class='mr-10 inline-block'>#{item.fact}</span>")|join(' ') }}
+                {% set random_fact = random(0, facts|length - 1) %}
+                <span class="mr-10 inline-block">{{ facts[random_fact].fact }}</span>
             </div>
         </div>
     </div>
