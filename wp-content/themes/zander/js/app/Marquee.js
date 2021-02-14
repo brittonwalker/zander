@@ -13,6 +13,11 @@ class Marquee {
             el: document.getElementById('marquee'),
         }
 
+        if( !this.settings.el) {
+            console.log('There is no marquee to show.');
+            return;
+        }
+
         window.setInterval(() => this.animationLoop(), 20);
         
     }

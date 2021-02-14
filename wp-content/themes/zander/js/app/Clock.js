@@ -8,6 +8,14 @@ export default class Clock {
 
     constructor() {
 
+        this.settings = {
+            el: document.getElementById("clock")
+        }
+
+        if ( !this.settings.el ) {
+            return;
+        }
+
         this.currentTime();
 
     }
