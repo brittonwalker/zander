@@ -3,14 +3,32 @@
  */
 
 import $ from 'jquery';
+import {
+    gsap,
+    Power3
+} from 'gsap';
 
 export default class Menu {
 
     constructor() {
 
+        this.settings = {
+            postType: document.querySelector('[data-post-type]'),
+            logo: document.querySelector('[data-main-logo]'),
+            short: document.querySelector('[data-short-logo]'),
+        }
+
         $('.menu-trigger-wrapper').on('click', this.activateMenu);
 
         $(document).on('mouseup', (e) => this.closeMenu(e));
+
+        window.addEventListener('scroll', (evt) => this.bindEvents(evt) );
+
+    }
+
+    bindEvents(evt) {
+
+        this.handlePostType();
 
     }
 
@@ -25,4 +43,29 @@ export default class Menu {
         }
     }
 
+    handlePostType() {
+        let distance = fromHalf() - getPosition('left', this.settings.short);
+
+        if ( window.scrollY > 0 ) {
+            this.settings.logo.parentElement.classList.add('logo-shorty');
+            gsap.to(this.settings.postType, { x: distance * -1 } );
+
+        } else {
+            gsap.to(this.settings.postType, { x: 0 })
+            this.settings.logo.parentElement.classList.remove('logo-shorty');
+        }
+    }
+
+}
+
+const getPosition = (direction, el) => {
+    if (direction === 'left') {
+        return el.getBoundingClientRect().left + el.offsetWidth;
+    } else if ( direction === 'top' ) {
+        return el.getBoundingClientRect().top + el.offsetHeight;
+    }
+}
+
+const fromHalf = () => {
+    return window.innerWidth / 2;
 }
