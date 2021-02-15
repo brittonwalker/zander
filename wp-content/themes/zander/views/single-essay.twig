@@ -8,12 +8,12 @@
         {% endblock %}
 
         <div class="content-wrapper" data-scroll-container>
-            <div class="grid grid-cols-2 gap-6">
-                <div class="col-span">
+            <div class="px-3 lg:grid grid-cols-2 gap-6">
+                <div class="hidden lg:block lg:col-span">
                     <div class="pt-10 pb-12"></div>
                     <div class="grid grid-cols-6 h-full">
                         <div class="col-span-4 col-start-2 relative">
-                            <div class="sticky essay-left-rail">
+                            <div class="lg:sticky essay-left-rail">
                                 <table data-publication-table-target class="table-auto mb-12 mt-auto opacity-0">
                                     <tr>
                                         <td class="text-flamingo pr-6">Publication</td>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-span relative">
                     <div class="pt-10 pb-12"></div>
-                    <div data-title-wrapper class="mb-12 sticky">
+                    <div data-title-wrapper class="mb-12 lg:sticky">
                         <h1 data-title class="text-30 relative">{{ post.title }}</h1>
                     </div>
                     <table class="table-auto mb-12" data-publication-table>
