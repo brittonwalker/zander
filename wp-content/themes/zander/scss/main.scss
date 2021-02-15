@@ -214,3 +214,13 @@ p {
         }
     }
 }
+
+[data-title-wrapper] {
+    top: 20px;
+}
+
+.admin-bar {
+    [data-title-wrapper] {
+        top: 52px;
+    }
+}

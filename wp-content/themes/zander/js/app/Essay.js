@@ -27,8 +27,6 @@ export default class Essay {
             padding: 35,
         }
 
-        console.log(window.scrollY);
-
         window.addEventListener('scroll', (evt) => this.bindEvents(evt) );
 
     }
@@ -57,7 +55,8 @@ export default class Essay {
     }
 
     handleTitle() {
-        if ( this.settings.titleWrapper.getBoundingClientRect().top <= 20 ) {
+        const topPosition = document.querySelector('.admin-bar') ? 52 : 20;
+        if ( this.settings.titleWrapper.getBoundingClientRect().top <= topPosition ) {
             let distance = fromHalf() - getPosition('left', this.settings.postType);
             gsap.to(this.settings.title, { x: distance * -1 })
         } else {
