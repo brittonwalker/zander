@@ -55,6 +55,9 @@ export default class Essay {
     }
 
     handleTitle() {
+        if (window.innerWidth <= 1024) {
+            return;
+        }
         const topPosition = document.querySelector('.admin-bar') ? 52 : 20;
         if ( this.settings.titleWrapper.getBoundingClientRect().top <= topPosition ) {
             let distance = fromHalf() - getPosition('left', this.settings.postType);
