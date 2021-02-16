@@ -28,6 +28,7 @@ export default class Essay {
         }
 
         window.addEventListener('scroll', (evt) => this.bindEvents(evt) );
+        window.addEventListener('resize', (evt) => this.bindEvents(evt) );
 
     }
 

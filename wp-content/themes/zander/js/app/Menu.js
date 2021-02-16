@@ -44,7 +44,7 @@ export default class Menu {
     }
 
     handlePostType() {
-        let distance = fromHalf() - getPosition('left', this.settings.short);
+        let distance = fromHalf() - getPosition('left', this.settings.short) + 15;
 
         if ( window.scrollY > 0 ) {
             this.settings.logo.parentElement.classList.add('logo-shorty');
