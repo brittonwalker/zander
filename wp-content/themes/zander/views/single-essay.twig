@@ -14,11 +14,13 @@
                     <div class="grid grid-cols-6 h-full">
                         <div class="col-span-4 relative">
                             <div class="lg:sticky essay-left-rail pl-17">
-                                <table data-publication-table-target class="table-auto mb-12 mt-auto opacity-0">
-                                    <tr>
-                                        <td class="text-flamingo pr-6">Publication</td>
-                                        <td>{{ post.terms( 'publication' )|join(', ') }}</td>
-                                    </tr>
+                                <table data-publication-table-target class="table-auto mb-12 mt-auto opacity-0 post-table">
+                                    {% if post.terms( 'publication' ) %}
+                                        <tr>
+                                            <td class="text-flamingo pr-6">Publication</td>
+                                            <td>{{ post.terms( 'publication' )|join(', ') }}</td>
+                                        </tr>
+                                    {% endif %}
                                     <tr>
                                         <td class="text-flamingo pr-6">Year</td>
                                         <td>{{ post.terms( 'year' )|join(', ') }}</td>
@@ -38,11 +40,13 @@
                     <div data-title-wrapper class="mb-12 lg:sticky">
                         <h1 data-title class="text-30 relative">{{ post.title }}</h1>
                     </div>
-                    <table class="table-auto mb-12" data-publication-table>
-                        <tr>
-                            <td class="text-flamingo pr-6">Publication</td>
-                            <td>{{ post.terms( 'publication' )|join(', ') }}</td>
-                        </tr>
+                    <table class="table-auto mb-12 post-table" data-publication-table>
+                        {% if post.terms( 'publication' ) %}
+                            <tr>
+                                <td class="text-flamingo pr-6">Publication</td>
+                                <td>{{ post.terms( 'publication' )|join(', ') }}</td>
+                            </tr>
+                        {% endif %}
                         <tr>
                             <td class="text-flamingo pr-6">Year</td>
                             <td>{{ post.terms( 'year' )|join(', ') }}</td>
@@ -50,7 +54,7 @@
                     </table>
                     <div class="essay-content">
                         <div data-scroll-section>
-                            <div class="essay-content-inner">
+                            <div class="essay-content-inner wysiwyg-wrapper">
                                 {{ post.content }}
                             </div>
                         </div>    
@@ -64,4 +68,5 @@
 {% endblock %}
 
 {% block footer %}
+    {% include 'includes/components/essay-footer.twig' %}
 {% endblock %}

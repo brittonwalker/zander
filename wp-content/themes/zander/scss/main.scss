@@ -224,3 +224,16 @@ p {
         top: 52px;
     }
 }
+
+.post-table {
+    td {
+        min-width: 115px;
+    }
+}
+
+.wysiwyg-wrapper {
+    a {
+        @apply transition-colors;
+        @apply hover:text-flamingo;
+    }
+}

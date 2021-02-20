@@ -25,15 +25,17 @@
                     <h1 class="text-parsely text-30 hidden">Essays</h1>
                     {% for item in posts %}
                         <a href="{{ item.link }}" class="hover:text-flamingo" data-featured-index="{{ loop.index }}">
-                            <table class="table-auto mb-6">
+                            <table class="table-auto mb-6 post-table">
                                 <tr>
                                     <td class="text-flamingo pr-6">Title</td>
                                     <td>{{ item.title }}</td>
                                 </tr>
-                                <tr>
-                                    <td class="text-flamingo pr-6">Publication</td>
-                                    <td>{{ item.terms( 'publication' )|join(', ') }}</td>
-                                </tr>
+                                {% if item.terms( 'publication' ) %}
+                                    <tr>
+                                        <td class="text-flamingo pr-6">Publication</td>
+                                        <td>{{ item.terms( 'publication' )|join(', ') }}</td>
+                                    </tr>
+                                {% endif %}
                                 <tr>
                                     <td class="text-flamingo pr-6">Year</td>
                                     <td>{{ item.terms( 'year' )|join(', ') }}</td>
