@@ -44,6 +44,10 @@ export default class Menu {
     }
 
     handlePostType() {
+        if ( document.body.classList.contains('home') ) {
+            return;
+        }
+
         let distance = fromHalf() - getPosition('left', this.settings.short) + 15;
 
         if ( window.scrollY > 0 ) {
