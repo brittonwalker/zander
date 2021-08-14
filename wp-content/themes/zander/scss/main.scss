@@ -214,11 +214,21 @@ p {
         transition: opacity .3s ease;
         max-height: 50vh;
         max-width: 100%;
+        width: 100%;
 
         &.active-img {
             opacity: 1;
         }
+        img {
+            margin: 0 auto;
+            max-height: 50vh;
+        }
     }
+}
+
+.essay-images-wrapper {
+    position: sticky;
+    top: 30vh;
 }
 
 [data-title-wrapper] {
