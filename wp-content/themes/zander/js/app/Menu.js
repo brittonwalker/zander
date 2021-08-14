@@ -44,7 +44,7 @@ export default class Menu {
     }
 
     handlePostType() {
-        if ( document.body.classList.contains('home') ) {
+        if ( document.body.classList.contains('home') || document.body.classList.contains('single-essays') ) {
             return;
         }
 

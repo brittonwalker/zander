@@ -23,8 +23,10 @@ export default class Essay {
             logo: document.querySelector('[data-main-logo]'),
             short: document.querySelector('[data-short-logo]'),
             metaTarget: document.querySelector('[data-publication-table-target]'),
+            date: document.querySelector('[data-publication-table-date]'),
+            dateTitle: document.querySelector('[data-publication-table-date-title]'),
             meta: document.querySelector('[data-publication-table]'),
-            padding: 35,
+            gap: 15,
         }
 
         window.addEventListener('scroll', (evt) => this.bindEvents(evt) );
@@ -33,6 +35,7 @@ export default class Essay {
     }
 
     bindEvents(evt) {
+        this.handlePostType();
         this.handleTitle();
         this.handleMeta();
 
@@ -43,7 +46,7 @@ export default class Essay {
     }
 
     handlePostType() {
-        let distance = fromHalf() - getPosition('left', this.settings.short);
+        let distance = fromHalf() - getPosition('left', this.settings.metaTarget, true) + this.settings.gap;
 
         if ( this.settings.titleWrapper.getBoundingClientRect().top <= getPosition('top', this.settings.postType) ) {
             this.settings.logo.parentElement.classList.add('logo-shorty');
@@ -61,8 +64,10 @@ export default class Essay {
         }
         const topPosition = document.querySelector('.admin-bar') ? 52 : 20;
         if ( this.settings.titleWrapper.getBoundingClientRect().top <= topPosition ) {
-            let distance = fromHalf() - getPosition('left', this.settings.postType);
-            gsap.to(this.settings.title, { x: distance * -1 })
+            let distance = fromHalf() - getPosition('left', this.settings.dateTitle) + this.settings.gap;
+            const maxwidthsetting = fromHalf() - getPosition('left', this.settings.dateTitle);
+            this.settings.title.style.maxWidth = `${maxwidthsetting}px`;
+            gsap.to(this.settings.title, { x: distance * -1 , maxWidth: maxwidthsetting})
         } else {
             gsap.to(this.settings.title, { x: 0 })
         }
@@ -91,9 +96,13 @@ export default class Essay {
 
 }
 
-const getPosition = (direction, el) => {
+const getPosition = (direction, el, bool) => {
     if (direction === 'left') {
-        return el.getBoundingClientRect().left + el.offsetWidth;
+        if (bool) {
+            return el.getBoundingClientRect().left;
+        } else {
+            return el.getBoundingClientRect().left + el.offsetWidth;
+        }
     } else if ( direction === 'top' ) {
         return el.getBoundingClientRect().top + el.offsetHeight;
     }
