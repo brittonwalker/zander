@@ -48,7 +48,7 @@ class Enqueue {
 	 */
 	public function is_development() {
 
-		if ( strpos( get_site_url(), '.test/' ) !== false ) {
+		if ( strpos( get_site_url(), '.test' ) !== false ) {
 			return true;
 		}
 
@@ -86,46 +86,31 @@ class Enqueue {
 			$this->version,
 			'screen, print'
 		);
-
-		if(is_search()) {
-			$file = $this->get_file_path( $file_type, 'search' );
-			wp_enqueue_style(
-				"search-{$file_type}",
-				$file,
-				false,
-				$this->version,
-				'screen, print'
-			);
-		}
 	}
 
 	/**
 	 * Site Scripts
 	 */
 	public function site_scripts() {
-		$file_type = 'js';
-		$file = $this->get_file_path( $file_type, $this->namespace );
 
-		wp_enqueue_script(
-			"{$this->namespace}-{$file_type}",
-			$file,
-			array(
-				'jquery',
-			),
-			$this->version,
-			true
-		);
-		
-		if(is_search()) {
-			$file = $this->get_file_path( $file_type, 'search' );
+		if ( $this->is_development() ) {
 			wp_enqueue_script(
-				"search-{$file_type}",
-				$file,
+				'zander',
+				get_theme_file_uri( '/assets/js/zander.js' ),
+				array(),
 				false,
-				$this->version,
+				true
+			);
+		} else {
+			wp_enqueue_script(
+				'zander',
+				get_theme_file_uri( '/assets/js/zander.min.js' ),
+				array(),
+				false,
 				true
 			);
 		}
+		
 	}
 
 	private function get_file_path( $type, $file_prefix = 'zander') {
