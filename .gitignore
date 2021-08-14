@@ -46,6 +46,8 @@ composer.lock
 
 #Build
 wp-content/themes/zander/node_modules/
+wp-content/themes/zander/assets/css/zander.css
+wp-content/themes/zander/assets/js/zander.js
 
 # wpengine specific
 .smushit-status
