@@ -86,7 +86,7 @@ class Enqueue {
 		} else {
 			wp_enqueue_style(
 				'wp_vip',
-				get_theme_file_uri( '/assets/css/wp-vip.min.css' ),
+				get_theme_file_uri( '/assets/css/zander.min.css' ),
 				false,
 				$this->version,
 				'screen, print'
