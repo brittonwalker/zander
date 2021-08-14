@@ -75,17 +75,23 @@ class Enqueue {
 	 * Site Styles
 	 */
 	public function site_styles() {
-
-		$file_type = 'css';
-		$file = $this->get_file_path( $file_type, $this->namespace );
-
-		wp_enqueue_style(
-			"{$this->namespace}-{$file_type}",
-			$file,
-			false,
-			$this->version,
-			'screen, print'
-		);
+		if ( $this->is_development() ) {
+			wp_enqueue_style(
+				'wp_vip',
+				get_theme_file_uri( '/assets/css/zander.css' ),
+				false,
+				time(),
+				'screen, print'
+			);
+		} else {
+			wp_enqueue_style(
+				'wp_vip',
+				get_theme_file_uri( '/assets/css/wp-vip.min.css' ),
+				false,
+				$this->version,
+				'screen, print'
+			);
+		}
 	}
 
 	/**
