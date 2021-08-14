@@ -4,7 +4,7 @@
     <main data-barba="container" barba-namespace="single-essay" class="{{ body_class }}">
 
         {% block header %}
-            {% include 'includes/components/header.twig' with { page_title: 'Essay', header_color: 'almond', text_color: 'flamingo' } %}
+            {% include 'includes/components/header.twig' with { page_title: 'Essay', header_color: 'bg-almond', text_color: 'text-flamingo' } %}
         {% endblock %}
 
         <div class="content-wrapper" data-scroll-container>
@@ -17,12 +17,12 @@
                                 <table data-publication-table-target class="table-auto mb-12 mt-auto opacity-0 post-table">
                                     {% if post.terms( 'publication' ) %}
                                         <tr>
-                                            <td class="text-flamingo pr-6">Publication</td>
+                                            <td data-publication-table-date class="text-flamingo pr-6">Publication</td>
                                             <td>{{ post.terms( 'publication' )|join(', ') }}</td>
                                         </tr>
                                     {% endif %}
                                     <tr>
-                                        <td class="text-flamingo pr-6">Year</td>
+                                        <td data-publication-table-date-title class="text-flamingo pr-6">Year</td>
                                         <td>{{ post.terms( 'year' )|join(', ') }}</td>
                                     </tr>
                                 </table>
