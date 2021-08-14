@@ -44,6 +44,7 @@ var spacing = {
 const themePath = '.';
 
 module.exports = {
+  mode: 'jit',
   purge: {
     content: [
       './views/*.twig',
