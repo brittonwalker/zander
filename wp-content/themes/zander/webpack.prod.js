@@ -13,6 +13,7 @@ const {
 } = require('clean-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const chalk = require('chalk');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'production',
@@ -32,6 +33,6 @@ module.exports = merge(common, {
     },
     optimization: {
         minimize: true,
-        minimizer: [new OptimizeCSSAssetsPlugin()],
+        minimizer: [new OptimizeCSSAssetsPlugin(), new TerserPlugin()],
     },
 });
