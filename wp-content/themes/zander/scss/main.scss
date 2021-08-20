@@ -16,6 +16,10 @@ body {
     font-variant: lining-nums;
 }
 
+::selection {
+    @apply bg-flamingo text-almond;
+}
+
 .menu-indicator {
     @apply w-2;
     @apply h-2;
