@@ -18,16 +18,12 @@ class Homepage {
 
         $(document).ready(() => {
             setTimeout( () => {
-                gsap.fromTo('.portrait-stamp', { scale: 2, opacity: 0, rotate: '-45deg' }, { scale: 1, opacity: 1, duration: .5, ease: Power3.easeOut, onComplete: this.rotate } );
+                var tl = gsap.timeline();
+                tl.fromTo('.portrait-stamp', { scale: 2, opacity: 0, rotate: '-45deg' }, { scale: 1, opacity: 1, duration: .5, ease: Power3.easeOut } );
+                tl.to('.portrait-stamp', { scale: 1, rotate: 0, duration: 1, ease: Power3.easeOut } );
             }, 600)
         });
 
-    }
-
-    rotate() {
-        let stamp = document.querySelector('.portrait-stamp').children[0];
-        stamp.classList.add('animate-spin');
-        stamp.style.animationDuration = '4s';
     }
 
 }
