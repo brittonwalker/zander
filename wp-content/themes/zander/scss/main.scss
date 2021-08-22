@@ -219,13 +219,23 @@ p {
         max-height: 50vh;
         max-width: 100%;
         width: 100%;
+        visibility: hidden;
 
         &.active-img {
             opacity: 1;
+            visibility: visible;
         }
         img {
             margin: 0 auto;
             max-height: 50vh;
+        }
+        figure {
+            display: table;
+            margin: 0 auto;
+        }
+        figcaption {
+            display: table-caption;
+            caption-side: bottom;
         }
     }
 }

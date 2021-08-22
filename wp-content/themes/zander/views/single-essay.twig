@@ -31,8 +31,12 @@
                                 <div class="essay-images relative ml-auto">
                                     {% for image in post.essay_images %}
                                         <div class="essay-image absolute top-0 left-0 opacity-0 {{ loop.first ? 'active-img' }}">
-                                            <img src="{{ TimberImage(image).src }}" class="" alt="{{ TimberImage(image).alt }}">
-                                            <div class="caption text-12 mt-2">{{ TimberImage(image).caption }}</div>
+                                            <figure>
+                                                <img src="{{ TimberImage(image).src|resize(600) }}" class="" alt="{{ TimberImage(image).alt }}">
+                                                <figcaption class="caption text-12 mt-2">
+                                                    {{ TimberImage(image).caption }}
+                                                </figcaption>
+                                            </figure>
                                         </div>
                                     {% endfor %}
                                 </div>
