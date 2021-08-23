@@ -82,7 +82,8 @@ export default class Essay {
     }
 
     handleImages(images) {
-        const spacing = document.body.offsetHeight / [ ...images ].length;
+        const essayHeight = document.querySelector('.essay-content-inner')
+        const spacing = essayHeight.offsetHeight / [ ...images ].length;
 
         [ ...images ].forEach((element, index) => {
             if ( window.scrollY >= index * spacing && window.scrollY < (index + 1) * spacing ) {
