@@ -13,8 +13,7 @@
                     <div class="col-span-1 md:col-span-5">
                         <div class="justify-end lg:flex">
                             <div class="relative">
-                                <img src="{{ TimberImage(post.photo).src }}" alt="{{ TimberImage(post.photo).alt }}" class="passport-photo">
-                                {# <div class="image-overlay w-full h-full absolute top-0 left-0 bg-almond"></div> #}
+                                <img src="{{ TimberImage(post.photo).src|resize(490)}}" alt="{{ TimberImage(post.photo).alt }}" class="passport-photo">
                                 <div class="portrait-stamp opacity-0">
                                     <div class="w-12">
                                         {% include 'img/seal_pointer.svg' %}

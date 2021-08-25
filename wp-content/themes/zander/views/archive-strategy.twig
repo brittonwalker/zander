@@ -11,14 +11,12 @@
         <div class="content-wrapper relative">
             <div class="px-3 lg:grid grid-cols-2 gap-6 m-top-grid mb-28">
                 <div class="col-span">
-                    <div class="grid grid-cols-6 h-full">
+                    <div class="image-grid grid grid-cols-6 h-full">
                         <div class="col-span-4 col-start-2 h-full">
-                            <div class="sticky" style="top: 30vh;">
-                                <div class="image-container ml-auto sticky h-full">
-                                    {% for item in posts %}
-                                        <img src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.src }}" data-featured-image="{{ loop.index }}" class="ml-auto">
-                                    {% endfor %}
-                                </div>
+                            <div class="image-container ml-auto sticky h-full">
+                                {% for item in posts %}
+                                    <img src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.src|resize(1400) }}" data-featured-image="{{ loop.index }}" class="ml-auto">
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
