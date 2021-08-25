@@ -11,9 +11,9 @@
         <div class="content-wrapper relative">
             <div class="px-3 lg:grid grid-cols-2 gap-6 m-top-grid mb-28">
                 <div class="col-span">
-                    <div class="image-grid grid grid-cols-6 h-full">
-                        <div class="col-span-4 col-start-2 h-full">
-                            <div class="image-container ml-auto sticky h-full">
+                    <div class="image-grid grid grid-cols-6">
+                        <div class="col-span-4 col-start-2">
+                            <div class="image-container ml-auto">
                                 {% for item in posts %}
                                     <img src="{{ item.thumbnail.src|resize(1400) }}" alt="{{ item.thumbnail.alt ? item.thumbnail.alt : item.client }}" data-featured-image="{{ loop.index }}" class="ml-auto">
                                 {% endfor %}
