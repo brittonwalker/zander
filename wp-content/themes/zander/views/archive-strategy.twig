@@ -15,7 +15,7 @@
                         <div class="col-span-4 col-start-2 h-full">
                             <div class="image-container ml-auto sticky h-full">
                                 {% for item in posts %}
-                                    <img src="{{ item.thumbnail.src|resize(1400) }}" alt="{{ item.thumbnail.alt }}" data-featured-image="{{ loop.index }}" class="ml-auto">
+                                    <img src="{{ item.thumbnail.src|resize(1400) }}" alt="{{ item.thumbnail.alt ? item.thumbnail.alt : item.client }}" data-featured-image="{{ loop.index }}" class="ml-auto">
                                 {% endfor %}
                             </div>
                         </div>
