@@ -19,6 +19,26 @@ p {
     }
 }
 
+.site-header {
+	@apply px-4 pt-4 fixed top-0 w-full z-10;
+
+	&__content {
+		@apply relative;
+	}
+
+	&__inner {
+		@apply grid grid-cols-2 gap-6;
+	}
+
+	&__logos {
+		@apply flex items-center relative;
+	}
+
+	&__post-type {
+		@apply text-30 inline-block transition-opacity duration-300;
+	}
+}
+
 .wysiwyg-wrapper {
     a {
         @apply transition-colors;

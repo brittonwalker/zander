@@ -6,9 +6,7 @@
 }
 
 .menu-trigger-wrapper {
-    position: fixed;
-    top: 0;
-    right: 0;
+    @apply absolute top-1/2 -translate-y-1/2 right-0;
     padding: 20px;
     z-index: 1000;
 
@@ -20,9 +18,14 @@
     }
 }
 
+.menu-trigger-inner {
+	@apply flex items-center justify-center h-full;
+}
+
 .site-menu {
     opacity: 0;
     pointer-events: none;
+    visibility: hidden;
     transition: opacity .3s ease;
 }
 
@@ -36,6 +39,7 @@
     .site-menu {
         opacity: 1;
         pointer-events: all;
+        visibility: visible;
     }
 }
 
@@ -49,10 +53,12 @@
     &.logo-shorty {
         .logo-long {
             opacity: 0;
+            visibility: hidden;
         }
         .logo-short {
             transition-delay: 300ms;
             opacity: 1;
+            visibility: visible;
         }
     }
     .logo-long {
@@ -61,6 +67,7 @@
     }
     .logo-short {
         opacity: 0;
+        visibility: hidden;
     }
     .logo-long,
     .logo-short {
@@ -72,4 +79,8 @@
     [data-title-wrapper] {
         top: 52px;
     }
+}
+
+.menu-item {
+    @apply mb-4 text-almond hover:text-flamingo transition ease-in-out duration-300;
 }

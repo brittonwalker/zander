@@ -15,3 +15,15 @@
         color: inherit;
     }
 }
+
+.site-footer {
+    @apply py-4 lg:fixed bottom-0 w-full bg-almond;
+
+    &__inner {
+        @apply lg:grid grid-cols-2 px-4 gap-6;
+    }
+}
+
+.cool-facts {
+    @apply whitespace-nowrap hidden lg:flex;
+}

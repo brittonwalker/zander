@@ -1,6 +1,6 @@
-<header class="site-header px-4 pt-4 fixed top-0 w-full z-10">
-    <div class="grid grid-cols-2 gap-6">
-        <div class="flex items-center relative nav-logo">
+<header class="site-header">
+    <div class="site-header__inner">
+        <div class="site-header__logos nav-logo">
             <a href="{{ site.link }}" data-main-logo class="logo logo-long h-7 overflow-hidden text-{{ header_color|default('parsley') }}">
                 {% include 'img/za-logo.twig' %}
             </a>
@@ -8,16 +8,16 @@
                 {% include 'img/za-logo-short.twig' %}
             </a>
         </div>
-        {% if page_title|default %}
-            <div>
-                <p data-post-type class="text-30 inline-block transition-opacity duration-300 text-{{ text_color|default('parsley') }}">{{ page_title }}</p>
-            </div>
-        {% endif %}
-    </div>
-    {% include 'includes/menu.twig' %}
-    <div class="menu-trigger-wrapper">
-        <div class="flex items-center justify-center h-full">
-            <div class="menu-indicator hello {{ header_color|default('bg-parsley') }}"></div>
+        <div class="site-header__content">
+            {% if page_title|default %}
+                <p data-post-type class="site-header__post-type text-{{ text_color|default('parsley') }}">{{ page_title }}</p>
+            {% endif %}
+            <button class="menu-trigger-wrapper">
+                <div class="menu-trigger-inner">
+                    <div class="menu-indicator {{ header_color|default('bg-parsley') }}"></div>
+                </div>
+            </button>
         </div>
     </div>
+    {% include 'includes/menu.twig' %}
 </header>

@@ -27,6 +27,15 @@
 
 .biography {
     max-width: 450px;
+
+    a {
+        @apply border-b;
+        border-color: initial;
+
+        &:hover {
+            @apply border-b-0;
+        }
+    }
 }
 
 @screen lg {
