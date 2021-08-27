@@ -1,0 +1,17 @@
+.facts-container {
+    overflow: hidden;
+}
+
+.facts-inner {
+    left: 100%;
+}
+
+.single-essays {
+    @apply bg-parsley;
+    @apply text-almond;
+
+    .site-footer {
+        background-color: inherit;
+        color: inherit;
+    }
+}

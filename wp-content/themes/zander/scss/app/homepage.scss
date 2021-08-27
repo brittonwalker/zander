@@ -1,0 +1,42 @@
+.home-wrapper {
+	padding: 30vh 0 50px;
+	height: 100%;
+	width: 100%;
+}
+
+.passport-photo {
+    max-height: 245px;
+}
+
+.portrait-stamp {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+.passport {
+    &-heading {
+        max-width: 75px;
+        width: 100%;
+    }
+    &-detail {
+
+    }
+}
+
+.biography {
+    max-width: 450px;
+}
+
+@screen lg {
+    .home-wrapper {
+		@apply pt-0;
+		height: 100%;
+		width: 100%;
+		min-height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

@@ -1,0 +1,27 @@
+body {
+    @apply text-parsley;
+    font-family: 'Lector';
+    font-variant: lining-nums;
+}
+
+::selection {
+    @apply bg-flamingo text-almond;
+}
+
+p {
+    font-size: 16px;
+    line-height: 26px;;
+}
+
+.admin-bar {
+    .site-header {
+        top: 32px !important;
+    }
+}
+
+.wysiwyg-wrapper {
+    a {
+        @apply transition-colors;
+        @apply hover:text-flamingo;
+    }
+}
