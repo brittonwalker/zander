@@ -4,6 +4,10 @@
 	width: 100%;
 }
 
+.homepage-grid {
+    @apply grid grid-cols-1 md:grid-cols-12 gap-6;
+}
+
 .passport-photo {
     max-height: 245px;
 }

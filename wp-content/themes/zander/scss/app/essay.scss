@@ -38,6 +38,10 @@
     margin-bottom: 20vh;
 }
 
+.essay-grid {
+    @apply px-3 lg:grid grid-cols-2 gap-6 min-h-screen;
+}
+
 @screen lg {
     margin-bottom: 30vh;
 }
