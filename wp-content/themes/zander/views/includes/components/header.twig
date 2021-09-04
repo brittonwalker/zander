@@ -1,4 +1,4 @@
-<header class="site-header">
+<header class="site-header site-header--{{ header_color }}">
     <div class="site-header__inner">
         <div class="site-header__logos nav-logo">
             <a href="{{ site.link }}" data-main-logo class="logo logo-long h-7 overflow-hidden text-{{ header_color|default('parsley') }}">
@@ -14,7 +14,7 @@
             {% endif %}
             <button class="menu-trigger-wrapper">
                 <div class="menu-trigger-inner">
-                    <div class="menu-indicator {{ header_color|default('bg-parsley') }}"></div>
+                    <div class="menu-indicator"></div>
                 </div>
             </button>
         </div>

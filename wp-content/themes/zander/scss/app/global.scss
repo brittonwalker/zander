@@ -37,6 +37,25 @@ p {
 	&__post-type {
 		@apply text-30 inline-block transition-opacity duration-300;
 	}
+
+	&--light {
+		.menu-indicator {
+			@apply bg-parsley;
+		}
+		.logo {
+			@apply text-parsley;
+		}
+	}
+
+	&--dark {
+		.menu-indicator {
+			@apply bg-almond;
+		}
+		[data-post-type],
+		.logo {
+			@apply text-almond;
+		}
+	}
 }
 
 .wysiwyg-wrapper {
