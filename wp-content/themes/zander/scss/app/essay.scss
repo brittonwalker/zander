@@ -42,10 +42,6 @@
     @apply px-3 lg:grid grid-cols-2 gap-6 min-h-screen;
 }
 
-@screen lg {
-    margin-bottom: 30vh;
-}
-
 .essay-content {
     p {
         margin-bottom: 26px;
