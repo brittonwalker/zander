@@ -1,16 +1,16 @@
 <header class="site-header site-header--{{ header_color }}">
     <div class="site-header__inner">
         <div class="site-header__logos nav-logo">
-            <a href="{{ site.link }}" data-main-logo class="logo logo-long h-7 overflow-hidden text-{{ header_color|default('parsley') }}">
+            <a href="{{ site.link }}" data-main-logo class="logo logo-long h-7 overflow-hidden">
                 {% include 'img/za-logo.twig' %}
             </a>
-            <a href="{{ site.link }}" data-short-logo class="logo logo-short absolute h-7 opacity-0 pr-8 text-{{ header_color|default('parsley') }}">
+            <a href="{{ site.link }}" data-short-logo class="logo logo-short absolute h-7 opacity-0 pr-8">
                 {% include 'img/za-logo-short.twig' %}
             </a>
         </div>
         <div class="site-header__content">
             {% if page_title|default %}
-                <p data-post-type class="site-header__post-type text-{{ text_color|default('parsley') }}">{{ page_title }}</p>
+                <p data-post-type class="site-header__post-type">{{ page_title }}</p>
             {% endif %}
             <button class="menu-trigger-wrapper">
                 <div class="menu-trigger-inner">
