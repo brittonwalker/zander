@@ -96,5 +96,3 @@ barba.hooks.beforeEnter(({ current, next}) => {
         document.body.classList = next.container.classList['value'];
     }
 })
-
-console.log('You are using Barba.js')
