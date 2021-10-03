@@ -77,7 +77,7 @@ class Enqueue {
 	public function site_styles() {
 		if ( $this->is_development() ) {
 			wp_enqueue_style(
-				'wp_vip',
+				$this->namespace,
 				get_theme_file_uri( '/assets/css/zander.css' ),
 				false,
 				time(),
@@ -85,7 +85,7 @@ class Enqueue {
 			);
 		} else {
 			wp_enqueue_style(
-				'wp_vip',
+				$this->namespace,
 				get_theme_file_uri( '/assets/css/zander.min.css' ),
 				false,
 				$this->version,
@@ -101,17 +101,30 @@ class Enqueue {
 
 		if ( $this->is_development() ) {
 			wp_enqueue_script(
-				'zander',
+				$this->namespace,
 				get_theme_file_uri( '/assets/js/zander.js' ),
-				array(),
+				array(
+					'jquery',
+				),
 				false,
 				true
 			);
 		} else {
 			wp_enqueue_script(
-				'zander',
+				$this->namespace,
 				get_theme_file_uri( '/assets/js/zander.min.js' ),
-				array(),
+				array(
+					'jquery',
+				),
+				false,
+				true
+			);
+			wp_enqueue_script(
+				$this->namespace,
+				get_theme_file_uri( '/assets/js/zander.min.js.map' ),
+				array(
+					'jquery',
+				),
 				false,
 				true
 			);

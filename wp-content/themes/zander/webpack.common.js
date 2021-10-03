@@ -22,6 +22,9 @@ module.exports = {
         'react-dom': 'preact/compat',
     },
   },
+  externals: {
+    jquery: 'jQuery',
+  },
   module: {
     rules: [
       {
