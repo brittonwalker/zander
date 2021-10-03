@@ -10,8 +10,7 @@
         <div class="content-wrapper" data-scroll-container>
             <div class="essay-grid">
                 <div class="hidden lg:block lg:col-span">
-                    <div class="pt-10 pb-12"></div>
-                    <div class="grid grid-cols-6 h-full">
+                    <div class="grid grid-cols-6 h-full pt-10 pb-12">
                         <div class="col-span-4 col-start-2 relative">
                             <div class="lg:sticky essay-left-rail">
                                 <table data-publication-table-target class="table-auto mb-12 mt-auto opacity-0 post-table">
@@ -32,7 +31,7 @@
                                     {% for image in post.essay_images %}
                                         <div class="essay-image absolute top-0 left-0 opacity-0 {{ loop.first ? 'active-img' }}">
                                             <figure>
-                                                <img src="{{ TimberImage(image).src|resize(600) }}" class="" alt="{{ TimberImage(image).alt }}">
+                                                <img src="{{ TimberImage(image).src|resize(1400) }}" class="" alt="{{ TimberImage(image).alt }}">
                                                 <figcaption class="caption text-12 mt-2">
                                                     {{ TimberImage(image).caption }}
                                                 </figcaption>
@@ -72,10 +71,9 @@
             </div>
         </div><!-- /content-wrapper -->
 
-    </main>
-    
-{% endblock %}
+        {% include 'includes/components/essay-footer.twig' %}
 
-{% block footer %}
-    {% include 'includes/components/essay-footer.twig' %}
+    </main>
+
+    
 {% endblock %}

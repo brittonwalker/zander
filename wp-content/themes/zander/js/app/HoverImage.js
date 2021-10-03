@@ -8,8 +8,8 @@ export default class HoverImage {
 
     constructor() {
 
-        $('[data-featured-index').on('mouseenter', this.activateImage);
-        $('[data-featured-index').on('mouseleave', this.deactivateImage);
+        $('[data-featured-index]').on('mouseenter', this.activateImage);
+        $('[data-featured-index]').on('mouseleave', this.deactivateImage);
 
     }
 

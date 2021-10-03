@@ -36,7 +36,7 @@ export default class Essay {
     }
 
     watchTitle() {
-        $(window).on('scroll', (event) => {
+        $(window).on('scroll', () => {
             let title = this.essayTitle.container[0].getBoundingClientRect();
             let headerTitle = this.header.postType[0].getBoundingClientRect();
             let pubTable = this.essayTitle.pubTable[0].getBoundingClientRect();
@@ -81,7 +81,6 @@ export default class Essay {
 
     titleView(elem) {
 
-        console.log(elem);
         elem.target.style.opacity = 0;
 
     }

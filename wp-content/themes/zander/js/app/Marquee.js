@@ -1,10 +1,8 @@
 /**
- * Boilerplate.js
+ * Marquee.js
  */
 
-import $ from 'jquery';
-
-class Marquee {
+export default class Marquee {
 
     constructor() {
 
@@ -13,11 +11,12 @@ class Marquee {
             el: document.getElementById('marquee'),
         }
 
-        if( !this.settings.el) {
-            console.log('There is no marquee to show.');
+
+        if( !this.settings.el || window.marqueeActive) {
             return;
         }
 
+        window.marqueeActive = true;
         window.setInterval(() => this.animationLoop(), 20);
         
     }
@@ -36,4 +35,3 @@ class Marquee {
     }
 
 }
-new Marquee();

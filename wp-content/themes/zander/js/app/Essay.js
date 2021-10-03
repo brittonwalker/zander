@@ -2,17 +2,21 @@
  * Essay.js
  */
 
-import $ from 'jquery';
-import {
-    gsap,
-    Power3
-} from 'gsap';
+import { gsap } from 'gsap';
 
 export default class Essay {
 
     constructor() {
 
-        if (!document.body.classList.contains('single-essays')) {
+        if (window.onScrollCallback) {
+            window.removeEventListener('scroll', window.onScrollCallback);
+        }
+
+        if (window.onResizeCallback) {
+            window.removeEventListener('scroll', window.onResizeCallback);
+        }
+
+        if (!document.querySelector('.single-essays')) {
             return;
         }
 
@@ -29,17 +33,19 @@ export default class Essay {
             gap: 15,
         }
 
-        window.addEventListener('scroll', (evt) => this.bindEvents(evt) );
-        window.addEventListener('resize', (evt) => this.bindEvents(evt) );
+        window.onResizeCallback = this.bindEvents.bind(this);
+        window.addEventListener('resize', window.onResizeCallback );
+        window.onScrollCallback = this.bindEvents.bind(this);
+        window.addEventListener('scroll', window.onScrollCallback );
 
     }
 
-    bindEvents(evt) {
+    bindEvents() {
         this.handlePostType();
         this.handleTitle();
         this.handleMeta();
 
-        if ( document.querySelector('.essay-images').children ) {
+        if ( document.querySelector('.essay-images')?.children ) {
             this.handleImages(document.querySelector('.essay-images').children);
         }
 

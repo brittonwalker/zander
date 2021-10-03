@@ -3,10 +3,7 @@
  */
 
 import $ from 'jquery';
-import {
-    gsap,
-    Power3
-} from 'gsap';
+import { gsap } from 'gsap';
 
 export default class Menu {
 
@@ -18,18 +15,24 @@ export default class Menu {
             short: document.querySelector('[data-short-logo]'),
         }
 
+        $('.menu-trigger-wrapper').off('click', this.activateMenu);
         $('.menu-trigger-wrapper').on('click', this.activateMenu);
 
-        $(document).on('mouseup', (e) => this.closeMenu(e));
+        // window.addEventListener('scroll', (evt) => this.bindEvents(evt) );
 
-        window.addEventListener('scroll', (evt) => this.bindEvents(evt) );
+        window.onMenuUp = (e) => this.closeMenu(e);
+
+        window.addEventListener('mouseup', window.onMenuUp.bind(this) );
+        if (window.onMenuScrollCallback) {
+            window.removeEventListener('scroll', window.onMenuScrollCallback );    
+        }
+        window.onMenuScrollCallback = this.bindEvents.bind(this);
+        window.addEventListener('scroll', window.onMenuScrollCallback );
 
     }
 
-    bindEvents(evt) {
-
+    bindEvents() {
         this.handlePostType();
-
     }
 
     activateMenu() {
@@ -44,7 +47,7 @@ export default class Menu {
     }
 
     handlePostType() {
-        if ( document.body.classList.contains('home') || document.body.classList.contains('single-essays') ) {
+        if ( document.body.classList.contains('home') || document.body.classList.contains('single-essays' || !this.settings.postType) ) {
             return;
         }
 
