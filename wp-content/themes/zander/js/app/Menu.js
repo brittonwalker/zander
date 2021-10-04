@@ -47,7 +47,11 @@ export default class Menu {
     }
 
     handlePostType() {
-        if ( document.body.classList.contains('home') || document.body.classList.contains('single-essays' || !this.settings.postType) ) {
+        if ( document.body.classList.contains('home') || !this.settings.postType ) {
+            return;
+        }
+
+        if ( document.body.classList.contains('single-essays') && window.innerWidth >= 1024) {
             return;
         }
 

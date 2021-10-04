@@ -52,6 +52,10 @@ export default class Essay {
     }
 
     handlePostType() {
+        if (window.innerWidth <= 1024) {
+            return;
+        }
+        
         let distance = fromHalf() - getPosition('left', this.settings.metaTarget, true) + this.settings.gap;
 
         if ( this.settings.titleWrapper.getBoundingClientRect().top <= getPosition('top', this.settings.postType) ) {

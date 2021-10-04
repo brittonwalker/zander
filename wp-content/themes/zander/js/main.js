@@ -7,7 +7,6 @@
 import '@babel/polyfill';
 import { gsap } from 'gsap/all';
 import barba from '@barba/core';
-// import Controller from './app/Controller';
 import Marquee from './app/Marquee';
 import Homepage from './app/HomePage';
 import HoverImage from './app/HoverImage';
