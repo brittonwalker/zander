@@ -1,5 +1,5 @@
 /**
- * Boilerplate.js
+ * Marquee.js
  */
 
 import $ from 'jquery';
@@ -14,7 +14,6 @@ class Marquee {
         }
 
         if( !this.settings.el) {
-            console.log('There is no marquee to show.');
             return;
         }
 

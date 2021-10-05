@@ -2,11 +2,9 @@
  * Controller.js
  */
 
-import $ from 'jquery';
 import HoverImage from './HoverImage';
 import Menu from './Menu';
 import PopulateImage from './PopulateImage';
-// import Essay from './TitlePosition';
 import Essay from './Essay';
 import Clock from './Clock';
 
