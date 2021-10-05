@@ -32,7 +32,7 @@ export default class Menu {
     }
 
     closeMenu(evt) {
-        let container = $('.menu-social, .menu-trigger-wrapper');
+        let container = $('.menu-social, .menu-trigger-wrapper, .menu-item');
         if (!container.is(evt.target) && container.has(evt.target).length === 0 && window.innerWidth >= 1024) {
             $('body').removeClass('menu-active')
         }
@@ -47,7 +47,13 @@ export default class Menu {
             return;
         }
 
-        let distance = fromHalf() - getPosition('left', this.settings.short) + 15;
+        let distance; 
+
+        if ( window.innerWidth >= 1024 || document.body.classList.contains('single-essays')) {
+            distance = fromHalf() - getPosition('left', this.settings.short) + 15;
+        } else {
+            distance = fromHalf() - getPosition('left', document.querySelector('.table-left-col')) + 15;
+        }
 
         if ( window.scrollY > 0 ) {
             this.settings.logo.parentElement.classList.add('logo-shorty');
@@ -57,6 +63,7 @@ export default class Menu {
             gsap.to(this.settings.postType, { x: 0 })
             this.settings.logo.parentElement.classList.remove('logo-shorty');
         }
+
     }
 
 }

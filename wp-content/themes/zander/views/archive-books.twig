@@ -26,23 +26,23 @@
                     {% for item in posts %}
                         <table class="table-auto mb-6" data-featured-index="{{ loop.index }}">
                             <tr>
-                                <td class="text-flamingo pr-6">Title</td>
+                                <td class="text-flamingo pr-6 align-top table-left-col">Title</td>
                                 <td>{{ item.title }}</td>
                             </tr>
                             <tr>
-                                <td class="text-flamingo pr-6">Collaborators</td>
+                                <td class="text-flamingo pr-6 align-top">Collaborators</td>
                                 <td>{{ item.collaborators }}</td>
                             </tr>
                             <tr>
-                                <td class="text-flamingo pr-6">Publisher</td>
+                                <td class="text-flamingo pr-6 align-top">Publisher</td>
                                 <td>{{ item.terms( 'publication' )|join(', ') }}</td>
                             </tr>
                             <tr>
-                                <td class="text-flamingo pr-6">Year</td>
+                                <td class="text-flamingo pr-6 align-top">Year</td>
                                 <td>{{ item.year }}</td>
                             </tr>
                             <tr>
-                                <td class="text-flamingo pr-6"></td>
+                                <td class="text-flamingo pr-6 align-top"></td>
                                 <td class="pt-5"><a href="{{ item.purchase_link }}" class="hover:text-flamingo transition ease-in-out duration-300" target="_blank">Purchase ↗</a></td>
                             </tr>
                         </table>

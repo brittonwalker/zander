@@ -27,17 +27,17 @@
                         <a href="{{ item.link }}" class="hover:text-flamingo" data-featured-index="{{ loop.index }}">
                             <table class="table-auto mb-6 post-table">
                                 <tr>
-                                    <td class="text-flamingo pr-6">Title</td>
+                                    <td class="text-flamingo pr-6 align-top table-left-col">Title</td>
                                     <td>{{ item.title }}</td>
                                 </tr>
                                 {% if item.terms( 'publication' ) %}
                                     <tr>
-                                        <td class="text-flamingo pr-6">Publication</td>
+                                        <td class="text-flamingo pr-6 align-top">Publication</td>
                                         <td>{{ item.terms( 'publication' )|join(', ') }}</td>
                                     </tr>
                                 {% endif %}
                                 <tr>
-                                    <td class="text-flamingo pr-6">Year</td>
+                                    <td class="text-flamingo pr-6 align-top">Year</td>
                                     <td>{{ item.terms( 'year' )|join(', ') }}</td>
                                 </tr>
                             </table>
