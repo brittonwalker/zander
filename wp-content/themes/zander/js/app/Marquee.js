@@ -2,8 +2,6 @@
  * Marquee.js
  */
 
-import $ from 'jquery';
-
 class Marquee {
 
     constructor() {

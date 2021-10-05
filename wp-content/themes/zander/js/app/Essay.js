@@ -2,11 +2,7 @@
  * Essay.js
  */
 
-import $ from 'jquery';
-import {
-    gsap,
-    Power3
-} from 'gsap';
+import { gsap } from 'gsap';
 
 export default class Essay {
 
@@ -34,7 +30,7 @@ export default class Essay {
 
     }
 
-    bindEvents(evt) {
+    bindEvents() {
         this.handlePostType();
         this.handleTitle();
         this.handleMeta();
@@ -55,7 +51,6 @@ export default class Essay {
         if ( this.settings.titleWrapper.getBoundingClientRect().top <= getPosition('top', this.settings.postType) ) {
             this.settings.logo.parentElement.classList.add('logo-shorty');
             gsap.to(this.settings.postType, { x: distance * -1 } );
-
         } else {
             gsap.to(this.settings.postType, { x: 0 })
             this.settings.logo.parentElement.classList.remove('logo-shorty');
