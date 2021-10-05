@@ -77,7 +77,7 @@ class Enqueue {
 	public function site_styles() {
 		if ( $this->is_development() ) {
 			wp_enqueue_style(
-				'wp_vip',
+				$this->namespace,
 				get_theme_file_uri( '/assets/css/zander.css' ),
 				false,
 				time(),
@@ -85,7 +85,7 @@ class Enqueue {
 			);
 		} else {
 			wp_enqueue_style(
-				'wp_vip',
+				$this->namespace,
 				get_theme_file_uri( '/assets/css/zander.min.css' ),
 				false,
 				$this->version,
@@ -101,46 +101,26 @@ class Enqueue {
 
 		if ( $this->is_development() ) {
 			wp_enqueue_script(
-				'zander',
+				$this->namespace,
 				get_theme_file_uri( '/assets/js/zander.js' ),
-				array(),
+				array(
+					'jquery',
+				),
 				false,
 				true
 			);
 		} else {
 			wp_enqueue_script(
-				'zander',
+				$this->namespace,
 				get_theme_file_uri( '/assets/js/zander.min.js' ),
-				array(),
+				array(
+					'jquery',
+				),
 				false,
 				true
 			);
 		}
 		
 	}
-
-	private function get_file_path( $type, $file_prefix = 'zander') {
-		if ( $this->is_development() ) {
-			$file_path = "{$this->url}/assets/{$type}/{$file_prefix}.{$type}";
-		} else {
-			$files = array();
-			$dir = new \DirectoryIterator(get_stylesheet_directory() . "/assets/{$type}/");
-
-			foreach ( $dir as $file ) {
-				$pathinfo = pathinfo( $file );
-				if ( strpos( $pathinfo['filename'], $file_prefix ) !== false && $pathinfo['extension'] === $type ) {
-					$files[$file->getMTime()][] = basename( $file );
-				}
-			}
-
-			krsort( $files );
-			$first = reset( $files );
-
-			$file_path = "{$this->url}/assets/{$type}/{$first[0]}";
-		}
-
-		return $file_path;
-	}
-
 }
 new Enqueue( 'zander' );
