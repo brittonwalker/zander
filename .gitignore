@@ -9,6 +9,9 @@
 *.xml
 Thumbs.db
 
+# cpanel
+.cpanel.yml
+
 # wordpress specific
 wp-config.php
 wp-content/uploads/
