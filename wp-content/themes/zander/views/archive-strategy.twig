@@ -15,7 +15,7 @@
                         <div class="col-span-4 col-start-2">
                             <div class="image-container ml-auto">
                                 {% for item in posts %}
-                                    <img src="{{ item.thumbnail.src|resize(1400) }}" alt="{{ item.thumbnail.alt ? item.thumbnail.alt : item.client }}" data-featured-image="{{ loop.index }}" class="ml-auto">
+                                    <img src="{{ item.thumbnail.src|resize(1400) }}" alt="{{ item.thumbnail.alt ? item.thumbnail.alt : item.client }}" data-featured-image="{{ loop.index }}" class="ml-auto" loading="lazy">
                                 {% endfor %}
                             </div>
                         </div>
@@ -26,24 +26,24 @@
                     {% for item in posts %}
                         <table class="table-auto mb-6" data-featured-index="{{ loop.index }}">
                             <tr>
-                                <td class="text-flamingo pr-6">Client</td>
+                                <td class="text-flamingo pr-6 align-top">Client</td>
                                 <td>{{ item.client }}</td>
                             </tr>
                             <tr>
-                                <td class="text-flamingo pr-6">Field</td>
+                                <td class="text-flamingo pr-6 align-top">Field</td>
                                 <td>{{ item.terms( 'field' )|join(', ') }}</td>
                             </tr>
                             <tr>
-                                <td class="text-flamingo pr-6">Challenge</td>
+                                <td class="text-flamingo pr-6 align-top">Challenge</td>
                                 <td>{{ item.challenge }}</td>
                             </tr>
                             <tr>
-                                <td class="text-flamingo pr-6">Year</td>
+                                <td class="text-flamingo pr-6 align-top">Year</td>
                                 <td>{{ item.year }}</td>
                             </tr>
                             {% if item.affiliation.title %}
                                 <tr>
-                                    <td class="text-flamingo pr-6">Affliation</td>
+                                    <td class="text-flamingo pr-6 align-top">Affliation</td>
                                     {% if item.affiliation.url %}
                                         <td><a href="{{ item.affiliation.url }}" class="hover:text-flamingo" target="_blank">{{ item.affiliation.title }} ↗</a></td>
                                     {% else %}

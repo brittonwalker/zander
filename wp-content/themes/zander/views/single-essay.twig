@@ -32,7 +32,7 @@
                                     {% for image in post.essay_images %}
                                         <div class="essay-image absolute top-0 left-0 opacity-0 {{ loop.first ? 'active-img' }}">
                                             <figure>
-                                                <img src="{{ TimberImage(image).src|resize(600) }}" class="" alt="{{ TimberImage(image).alt }}">
+                                                <img src="{{ TimberImage(image).src|resize(1400) }}" class="" alt="{{ TimberImage(image).alt }}" {% if loop.index != 1 %}loading="lazy"{% endif %}>
                                                 <figcaption class="caption text-12 mt-2">
                                                     {{ TimberImage(image).caption }}
                                                 </figcaption>

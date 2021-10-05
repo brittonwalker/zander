@@ -15,7 +15,7 @@
                         <div class="col-span-4 col-start-2">
                             <div class="image-container ml-auto">
                                 {% for item in posts %}
-                                    <img src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.src }}" data-featured-image="{{ loop.index }}" class="ml-auto">
+                                    <img src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.src }}" data-featured-image="{{ loop.index }}" class="ml-auto" loading="lazy">
                                 {% endfor %}
                             </div>
                         </div>

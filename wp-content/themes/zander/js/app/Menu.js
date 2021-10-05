@@ -3,10 +3,7 @@
  */
 
 import $ from 'jquery';
-import {
-    gsap,
-    Power3
-} from 'gsap';
+import { gsap } from 'gsap';
 
 export default class Menu {
 
@@ -26,25 +23,27 @@ export default class Menu {
 
     }
 
-    bindEvents(evt) {
-
+    bindEvents() {
         this.handlePostType();
-
     }
 
     activateMenu() {
         $('body').hasClass('menu-active') ? $('body').removeClass('menu-active') : $('body').addClass('menu-active');
     }
 
-    closeMenu(e) {
+    closeMenu(evt) {
         let container = $('.menu-social, .menu-trigger-wrapper');
-        if (!container.is(e.target) && container.has(e.target).length === 0 && window.innerWidth >= 1024) {
+        if (!container.is(evt.target) && container.has(evt.target).length === 0 && window.innerWidth >= 1024) {
             $('body').removeClass('menu-active')
         }
     }
 
     handlePostType() {
-        if ( document.body.classList.contains('home') || document.body.classList.contains('single-essays') ) {
+        if ( document.body.classList.contains('home') || !this.settings.postType ) {
+            return;
+        }
+
+        if ( document.body.classList.contains('single-essays') && window.innerWidth >= 1024) {
             return;
         }
 

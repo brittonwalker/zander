@@ -13,7 +13,7 @@ const chalk = require('chalk');
 
 module.exports = merge(common, {
     mode: 'development',
-    devtool: 'eval',
+    devtool: 'eval-source-map',
     plugins: [
         new MiniCssExtractPlugin({
             filename: '../css/[name].css',
