@@ -1,0 +1,29 @@
+.newsletter {
+	@apply fixed bottom-0 border border-parsley max-w-full bg-almond w-full invisible opacity-0 transition-opacity duration-300 text-parsley;
+	@apply md:w-[650px];
+	left: 50%;
+	transform: translateX(-50%);
+	max-width: calc(100% - 30px);
+	&.active {
+		@apply visible opacity-100;
+	}
+	&__inner {
+		@apply p-4 pt-1 relative flex flex-col items-center;
+	}
+	&__icon {
+		@apply w-full max-w-[150px];
+	}
+	&__copy {
+		@apply text-center md:max-w-[75%] mt-1 mb-4;
+	}
+	&__button {
+		@apply bg-flamingo rounded-xl text-almond w-[150px] block text-center transition-colors duration-300;
+		padding: 12px 18px;
+		&:hover {
+			@apply bg-parsley;
+		}
+	}
+	&__close {
+		@apply absolute top-0 right-0 p-2 cursor-pointer;
+	}
+}
