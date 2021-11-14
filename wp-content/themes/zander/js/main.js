@@ -10,4 +10,6 @@ import './app/HomePage';
 import './app/Essay';
 import Controller from './app/Controller';
 
-new Controller();
+document.addEventListener("DOMContentLoaded", function() {
+	new Controller();
+});

@@ -1,0 +1,16 @@
+{% if newsletter.show_modal|default(false) %}
+	<div class="newsletter" id="newsletter">
+		<div class="newsletter__inner">
+			<div class="newsletter__icon">
+				{% include 'svg/buzzcut.twig' %}
+			</div>
+			<div class="newsletter__copy">
+				<p>{{ newsletter.text }}</p>
+			</div>
+			<a href="{{ newsletter.button.url }}" target="_blank" class="newsletter__button">{{ newsletter.button.title }}</a>
+			<div class="newsletter__close">
+				{% include 'svg/icons/close.twig' %}
+			</div>
+		</div>
+	</div>
+{% endif %}
