@@ -5,11 +5,15 @@
 }
 
 .homepage-grid {
-    @apply grid grid-cols-1 md:grid-cols-12 gap-6;
+    @apply grid grid-cols-1 lg:grid-cols-12 gap-6;
 }
 
 .passport-photo {
     max-height: 145px;
+}
+
+.homepage-container {
+    @apply mx-auto max-w-[578px] lg:max-w-full px-3;
 }
 
 .portrait-stamp {
