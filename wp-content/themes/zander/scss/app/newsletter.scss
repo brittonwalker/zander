@@ -1,6 +1,6 @@
 .newsletter {
 	@apply fixed border border-parsley max-w-full bg-almond w-full pointer-events-none opacity-0 transition-all duration-300 text-parsley;
-	@apply md:w-[650px];
+	@apply md:w-[550px];
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);

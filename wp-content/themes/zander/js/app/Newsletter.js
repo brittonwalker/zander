@@ -25,7 +25,9 @@ export default class Newsletter {
 		}
 	}
 	show() {
-		this.newsletter.classList.add('active');
+		setTimeout(() => {
+			this.newsletter.classList.add('active');
+		}, 2000);
 	}
 	close() {
 		this.newsletter.classList.remove('active');
