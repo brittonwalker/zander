@@ -13,13 +13,6 @@
 			Sorry, no content
 		{% endblock %}
 
-		{% block footer %}
-			<footer id="footer" class="site-footer py-4 hidden lg:block lg:fixed bottom-0 w-full bg-almond">
-				{% include 'footer.twig' %}
-			</footer>
-			{{ function('wp_footer') }}
-		{% endblock %}
-
 		{{ function( 'wp_footer' ) }}
 
 		{% include 'includes/components/newsletter.twig' %}

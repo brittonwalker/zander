@@ -1,7 +1,7 @@
 {% extends "index.twig" %}
 
 {% block content %}
-    <main data-barba="container" barba-namespace="home" class="{{ body_class }} bg-almond">
+    <main data-barba="container" barba-namespace="home" data-body-class="{{ body_class }} bg-almond">
 
         {% block header %}
             {% include 'includes/components/header.twig' with { item: '', header_color: 'light' } %}
@@ -46,6 +46,10 @@
                 </div>
             </div>
         </div>
+
+        <footer id="footer" class="site-footer py-4 hidden lg:block lg:fixed bottom-0 w-full bg-almond">
+            {% include 'footer.twig' %}
+        </footer>
 
     </main>
 {% endblock %}
