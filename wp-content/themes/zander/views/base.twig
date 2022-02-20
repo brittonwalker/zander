@@ -9,19 +9,9 @@
 	<body class="bg-almond {{ body_class}}" data-template="base.twig" data-barba="wrapper">
 		{# <a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a> #}
 		
-		<section id="content" role="main" class="content-wrapper">
-			{% if title %}<h1>{{title}}</h1>{% endif %}
-			<div class="wrapper {{sidebar_class}}">
-				{% block content %}
-					Sorry, no content
-				{% endblock %}
-			</div>
-			{% if sidebar %}
-				<aside class="layout-sidebar">
-					{{sidebar}}
-				</aside>
-			{% endif %}
-		</section>
+		{% block content %}
+			Sorry, no content
+		{% endblock %}
 
 		{% block footer %}
 			<footer id="footer" class="site-footer py-4 hidden lg:block lg:fixed bottom-0 w-full bg-almond">

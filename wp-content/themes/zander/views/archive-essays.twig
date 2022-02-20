@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <main data-barba="container" barba-namespace="essays" class="{{ body_class }} bg-almond">
+    <main data-barba="container" role="main" barba-namespace="essays" data-body-class="{{ body_class }} bg-almond">
 
         {% block header %}
             {% include 'includes/components/header.twig' with { page_title: 'Essays', header_color: 'light' } %}
