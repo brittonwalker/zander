@@ -41,20 +41,16 @@ var spacing = {
   ...aspectRatios
 }
 
-const themePath = '.';
-
 module.exports = {
   mode: 'jit',
-  purge: {
-    content: [
-      './views/*.twig',
-      './views/**/*.twig',
-      './svg/**/*.twig',
-    ],
-    options: {
-      safelist: ['bg-parsley'],
-      blocklist: [/^debug-/],
-    },
+  content: [
+    './views/*.twig',
+    './views/**/*.twig',
+    './svg/**/*.twig',
+  ],
+  options: {
+    safelist: ['bg-parsley'],
+    blocklist: [/^debug-/],
   },
   theme: {
     extend: {

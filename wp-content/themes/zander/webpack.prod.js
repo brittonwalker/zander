@@ -7,12 +7,9 @@ const {
 } = require('./webpack.common.js');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const {
     CleanWebpackPlugin
 } = require('clean-webpack-plugin');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const chalk = require('chalk');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(common, {
@@ -22,10 +19,6 @@ module.exports = merge(common, {
         new MiniCssExtractPlugin({
             filename: '../css/[name].min.css',
         }),
-        new ProgressBarPlugin({
-            format: '  build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
-            clear: false
-        }),
     ],
     output: {
         filename: '[name].min.js',
@@ -33,6 +26,6 @@ module.exports = merge(common, {
     },
     optimization: {
         minimize: true,
-        minimizer: [new OptimizeCSSAssetsPlugin(), new TerserPlugin()],
+        minimizer: [new TerserPlugin()],
     },
 });
