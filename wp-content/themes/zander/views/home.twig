@@ -1,11 +1,12 @@
 {% extends "index.twig" %}
 
 {% block content %}
-    <main data-barba="container" barba-namespace="home" data-body-class="{{ body_class }} bg-almond">
 
-        {% block header %}
-            {% include 'includes/components/header.twig' with { item: '', header_color: 'light' } %}
-        {% endblock %}
+    {% block header %}
+        {% include 'includes/components/header.twig' with { item: '', header_color: 'light' } %}
+    {% endblock %}
+
+    <main data-barba="container" data-barba-namespace="Home" data-body-class="{{ body_class }} bg-almond">
 
         <div class="home-wrapper">
             <div class="homepage-container">

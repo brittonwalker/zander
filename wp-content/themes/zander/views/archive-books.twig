@@ -2,11 +2,11 @@
 
 {% block content %}
 
-    <main data-barba="container" role="main" barba-namespace="books" data-body-class="{{ body_class }} bg-almond">
+    {% block header %}
+        {% include 'includes/components/header.twig' with { page_title: 'Books', header_color: 'light' } %}
+    {% endblock %}
 
-        {% block header %}
-            {% include 'includes/components/header.twig' with { page_title: 'Books', header_color: 'light' } %}
-        {% endblock %}
+    <main data-barba="container" role="main" data-barba-namespace="Books" data-body-class="{{ body_class }} bg-almond">
 
         <div class="content-wrapper">
             <div class="page-content">
