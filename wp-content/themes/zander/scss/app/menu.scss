@@ -5,9 +5,6 @@
 
 .menu-trigger-wrapper {
     @apply absolute top-1/2 -translate-y-1/2 right-0 z-[1000] p-4;
-    // padding: 20px;
-    // z-index: 1000;
-
     &:hover {
         .menu-indicator {
             transform: scale(2);
@@ -21,18 +18,15 @@
 }
 
 .site-menu {
-    @apply opacity-0 pointer-events-none invisible transition-opacity duration-300 ease-linear max-h-full bg-black w-screen fixed z-30 left-0 top-0 bottom-0 p-4;
-}
-
-.menu-active {
-    .menu-trigger-wrapper {
-        .menu-indicator {
-            transform: scale(2);
-        }
-    }
-    .site-menu {
+    @apply opacity-0 pointer-events-none transition-opacity duration-300 ease-linear max-h-full bg-black w-screen fixed z-30 left-0 top-0 bottom-0 p-4;
+    &.menu-active {
         pointer-events: all;
-        @apply opacity-100 visible;
+        @apply opacity-100;
+        .menu-trigger-wrapper {
+            .menu-indicator {
+                transform: scale(2);
+            }
+        }
     }
 }
 
@@ -72,5 +66,5 @@
 }
 
 .menu-item {
-    @apply mb-4 text-almond hover:text-flamingo transition ease-in-out duration-300;
+    @apply mb-4 text-almond hover:text-flamingo transition-colors ease-in-out duration-300;
 }

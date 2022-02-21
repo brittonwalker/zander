@@ -19,3 +19,7 @@
 @import 'app/table';
 @import 'app/archive';
 @import 'app/newsletter';
+
+body {
+	transition: background-color .3s ease-in-out;
+}

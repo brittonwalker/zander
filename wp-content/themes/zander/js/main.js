@@ -5,11 +5,8 @@
 
 // JS
 import '@babel/polyfill';
-import './app/Marquee';
-import './app/HomePage';
-import './app/Essay';
+import './app/PageTransition';
+import Menu from './app/Menu';
 import Controller from './app/Controller';
-
-document.addEventListener("DOMContentLoaded", function() {
-	new Controller();
-});
+new Controller();
+window.headerMenu = new Menu();

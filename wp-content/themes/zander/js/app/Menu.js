@@ -3,7 +3,7 @@
  */
 
 import $ from 'jquery';
-import { gsap } from 'gsap';
+import { gsap, Circ } from 'gsap';
 
 export default class Menu {
 
@@ -15,7 +15,11 @@ export default class Menu {
             short: document.querySelector('[data-short-logo]'),
         }
 
-        $('.menu-trigger-wrapper').on('click', this.activateMenu);
+        this.menu = document.querySelector('.site-menu');
+        this.menuItems = this.menu.querySelectorAll('.menu-item');
+        gsap.set([...this.menuItems], { opacity: 0, y: 50 });
+
+        $('.menu-trigger-wrapper').on('click', () => this.toggleMenu() );
 
         $(document).on('mouseup', (e) => this.closeMenu(e));
 
@@ -27,15 +31,59 @@ export default class Menu {
         this.handlePostType();
     }
 
-    activateMenu() {
-        $('body').hasClass('menu-active') ? $('body').removeClass('menu-active') : $('body').addClass('menu-active');
+    open() {
+        this.menu.classList.add('menu-active')
+        gsap.to([...this.menuItems], {
+			opacity: 1,
+			y: 0,
+            duration: .5,
+            ease: Circ.easeOut,
+		})
+    }
+
+    resetColorTheme(type) {
+        const header = document.querySelector('.site-header');
+        if (type === 'light') {
+            header.classList.replace('site-header--dark', 'site-header--light')
+        } else {
+            header.classList.replace('site-header--light', 'site-header--dark')
+        }
+    }
+
+    toggleMenu() {
+        if (this.menu.classList.contains('menu-active')) {
+            this.deactivate();
+            return;
+        }
+        this.menu.classList.add('menu-active')
+        gsap.to([...this.menuItems], {
+			opacity: 1,
+            duration: .5,
+            ease: Circ.easeOut,
+		})
+        
     }
 
     closeMenu(evt) {
         let container = $('.menu-social, .menu-trigger-wrapper, .menu-item');
         if (!container.is(evt.target) && container.has(evt.target).length === 0 && window.innerWidth >= 1024) {
-            $('body').removeClass('menu-active')
+            this.deactivate();
         }
+    }
+
+    deactivate() {
+        gsap.to([...this.menuItems].reverse(), {
+            opacity: 1,
+            duration: .5,
+            ease: Circ.easeOut,
+            onComplete: () => {
+                this.menu.classList.remove('menu-active')
+            }
+        })
+    }
+
+    resetPostTitle(title) {
+        this.settings.postType.innerText = title;
     }
 
     handlePostType() {

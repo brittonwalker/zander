@@ -2,7 +2,7 @@
  * Marquee.js
  */
 
-class Marquee {
+export default class Marquee {
 
     constructor() {
 
@@ -33,4 +33,3 @@ class Marquee {
     }
 
 }
-new Marquee();

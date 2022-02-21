@@ -8,6 +8,26 @@ export default class Essay {
 
     constructor() {
 
+        this.settings = null;
+        this.addListeners();
+
+    }
+
+    addListeners() {
+        const boundListener = () => this.bindEvents();
+
+        if (!document.body.classList.contains('single-essays')) {
+            window.removeEventListener('scroll', () => boundListener() );
+            window.removeEventListener('resize', () => boundListener() );
+            return;
+        }
+
+        window.addEventListener('scroll', () => boundListener()  );
+        window.addEventListener('resize', () => boundListener()  );
+    }
+
+    bindEvents() {
+
         if (!document.body.classList.contains('single-essays')) {
             return;
         }
@@ -25,12 +45,6 @@ export default class Essay {
             gap: 15,
         }
 
-        window.addEventListener('scroll', (evt) => this.bindEvents(evt) );
-        window.addEventListener('resize', (evt) => this.bindEvents(evt) );
-
-    }
-
-    bindEvents() {
         this.handlePostType();
         this.handleTitle();
         this.handleMeta();
@@ -38,7 +52,6 @@ export default class Essay {
         if ( document.querySelector('.essay-images').children ) {
             this.handleImages(document.querySelector('.essay-images').children);
         }
-
     }
 
     handlePostType() {

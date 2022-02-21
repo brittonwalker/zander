@@ -5,20 +5,14 @@
 export default class Clock {
 
     constructor() {
-
-        this.settings = {
-            el: document.getElementById("clock")
-        }
-
-        if ( !this.settings.el ) {
-            return;
-        }
-
         this.currentTime();
-
     }
 
     currentTime() {
+        if (!document.getElementById("clock")) {
+            return;
+        }
+        
         let date = new Date(Date.now());
           
         let usaTime = date.toLocaleString("en-US", {

@@ -10,18 +10,13 @@ import {
     TweenMax
 } from 'gsap';
 
-class Homepage {
+export default class Homepage {
 
     constructor() {
-
         if (!$('.home-wrapper').length) {
             return;
         }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            this.init();
-        });
-
+        this.init();
     }
 
     rotateStamp() {
@@ -52,4 +47,3 @@ class Homepage {
     }
 
 }
-new Homepage();
