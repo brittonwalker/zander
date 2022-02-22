@@ -2,12 +2,9 @@
 // Components
 // --------------------------------------------------
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-
-// Vendor
-@import 'vendor/locomotive';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 // App
 @import 'app/global';
@@ -21,5 +18,5 @@
 @import 'app/newsletter';
 
 body {
-	transition: background-color .3s ease-in-out;
+	transition: background-color 0.3s ease-in-out;
 }

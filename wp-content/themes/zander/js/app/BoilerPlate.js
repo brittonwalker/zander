@@ -5,11 +5,6 @@
 import $ from 'jquery';
 
 class Boilerplate {
-
-  constructor() {
-
-    
-  }
-
+	constructor() {}
 }
 new Boilerplate();

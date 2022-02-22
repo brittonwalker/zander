@@ -3,33 +3,30 @@
  */
 
 export default class Marquee {
+	constructor() {
+		this.settings = {
+			currentLeftValue: 0,
+			el: document.getElementById("marquee"),
+		};
 
-    constructor() {
+		if (!this.settings.el) {
+			return;
+		}
 
-        this.settings = {
-            currentLeftValue: 0,
-            el: document.getElementById('marquee'),
-        }
+		window.setInterval(() => this.animationLoop(), 20);
+	}
 
-        if( !this.settings.el) {
-            return;
-        }
+	animationLoop() {
+		this.settings.el.style.transform = `translateX(${this.settings.currentLeftValue}px)`;
 
-        window.setInterval(() => this.animationLoop(), 20);
-        
-    }
+		if (
+			this.settings.el.getBoundingClientRect().right <
+			this.settings.el.parentNode.getBoundingClientRect().left
+		) {
+			this.settings.currentLeftValue = 0;
+			this.settings.el.style.transform = `translateX(${this.settings.currentLeftValue})`;
+		}
 
-    animationLoop() {
-
-        this.settings.el.style.transform = `translateX(${this.settings.currentLeftValue}px)`;
-
-        if (this.settings.el.getBoundingClientRect().right < this.settings.el.parentNode.getBoundingClientRect().left) {
-            this.settings.currentLeftValue = 0;
-            this.settings.el.style.transform = `translateX(${this.settings.currentLeftValue})`;
-        }
-
-        this.settings.currentLeftValue--;
-
-    }
-
+		this.settings.currentLeftValue--;
+	}
 }

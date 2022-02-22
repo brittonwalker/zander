@@ -1,29 +1,29 @@
 .facts-container {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .facts-inner {
-    left: 100%;
+	left: 100%;
 }
 
 .single-essays {
-    @apply bg-parsley;
-    @apply text-almond;
+	@apply bg-parsley;
+	@apply text-almond;
 
-    .site-footer {
-        background-color: inherit;
-        color: inherit;
-    }
+	.site-footer {
+		background-color: inherit;
+		color: inherit;
+	}
 }
 
 .site-footer {
-    @apply py-4 lg:fixed bottom-0 w-full bg-almond;
+	@apply py-4 lg:fixed bottom-0 w-full bg-almond;
 
-    &__inner {
-        @apply lg:grid grid-cols-2 px-4 gap-6;
-    }
+	&__inner {
+		@apply lg:grid grid-cols-2 px-4 gap-6;
+	}
 }
 
 .cool-facts {
-    @apply whitespace-nowrap hidden lg:flex;
+	@apply whitespace-nowrap hidden lg:flex;
 }
