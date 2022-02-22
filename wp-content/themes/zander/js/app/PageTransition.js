@@ -44,9 +44,16 @@ class PageTransition {
 				} else {
 					window.headerMenu.resetColorTheme('light');
 				}
-				imagesLoaded(data.next.container.querySelector('img'), () => {
-					window.headerMenu.deactivate();
-				});
+				imagesLoaded(
+					data.next.container.querySelectorAll(
+						'.active-img',
+						'.passport-photo',
+					),
+					() => {
+						console.log('all images loaded');
+						window.headerMenu.deactivate();
+					},
+				);
 			},
 
 			after: (data) => {
