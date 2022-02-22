@@ -26,9 +26,9 @@ class PageTransition {
 					),
 					() => {
 						console.log('image are loaded');
+						done();
 					},
 				);
-				done();
 			},
 
 			enter: (data) => {
@@ -85,7 +85,6 @@ class PageTransition {
 				return isAdminLink || isLogout;
 			},
 			transitions: [defaultTransition],
-			timeout: 5000,
 		});
 	}
 }
