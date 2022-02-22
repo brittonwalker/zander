@@ -22,13 +22,13 @@ class PageTransition {
 				const done = this.async();
 				imagesLoaded(
 					data.next.container.querySelectorAll(
-						'.active-img',
-						'.passport-photo',
+						'.active-img, .passport-photo',
 					),
 					() => {
-						done();
+						console.log('image are loaded');
 					},
 				);
+				done();
 			},
 
 			enter: (data) => {
@@ -85,6 +85,7 @@ class PageTransition {
 				return isAdminLink || isLogout;
 			},
 			transitions: [defaultTransition],
+			timeout: 5000,
 		});
 	}
 }
