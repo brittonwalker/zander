@@ -18,19 +18,6 @@ class PageTransition {
 		const defaultTransition = {
 			name: 'default-transition',
 
-			beforeEnter(data) {
-				const done = this.async();
-				imagesLoaded(
-					data.next.container.querySelectorAll(
-						'.active-img, .passport-photo',
-					),
-					() => {
-						console.log('image are loaded');
-						done();
-					},
-				);
-			},
-
 			enter: (data) => {
 				const { next, current } = data;
 				this.body.removeAttribute('class');
