@@ -18,6 +18,19 @@ class PageTransition {
 		const defaultTransition = {
 			name: 'default-transition',
 
+			beforeEnter(data) {
+				const done = this.async();
+				imagesLoaded(
+					data.next.container.querySelectorAll(
+						'.active-img',
+						'.passport-photo',
+					),
+					() => {
+						done();
+					},
+				);
+			},
+
 			enter: (data) => {
 				const { next, current } = data;
 				this.body.removeAttribute('class');
@@ -44,16 +57,7 @@ class PageTransition {
 				} else {
 					window.headerMenu.resetColorTheme('light');
 				}
-				imagesLoaded(
-					data.next.container.querySelectorAll(
-						'.active-img',
-						'.passport-photo',
-					),
-					() => {
-						console.log('all images loaded');
-						window.headerMenu.deactivate();
-					},
-				);
+				window.headerMenu.deactivate();
 			},
 
 			after: (data) => {
@@ -69,6 +73,7 @@ class PageTransition {
 			},
 		};
 		barba.init({
+			debug: true,
 			prevent: ({ el }) => {
 				const isAdminLink = document.getElementById('wpadminbar')
 					? document.getElementById('wpadminbar').contains(el)
